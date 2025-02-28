@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device width,initial scale =1.0" />
+    <meta name="keywords" content="HTML,CSS" />
+    <meta name="description" content="....." />
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart2);
+      google.charts.setOnLoadCallback(drawChart3);
+      google.charts.load("current", { packages: ["bar"] });
+      google.charts.setOnLoadCallback(drawChart4);
+      google.charts.setOnLoadCallback(drawChart5);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Time", "Solar", "Grid", "Gen", "Load"],
+          ["00:00", 10, 20, 30, 8],
+          ["04:00", 20, 30, 40, 15],
+          ["08:00", 50, 60, 70, 45],
+          ["12:00", 80, 90, 100, 75],
+          ["16:00", 100, 120, 130, 90],
+          ["20:00", 109, 130, 140, 100],
+        ]);
+
+        var options = {
+          title: "Line Graph",
+          colors: ["#cc0000", "#00b33c", "#ffcc00","#4f6fc5"],
+          areaOpacity: 0.1,
+          lineWidth:1
+          //    hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          //   vAxis: { minValue: 0 },
+        };
+
+        var chart = new google.visualization.AreaChart(
+          document.getElementById("chart_div")
+        );
+        chart.draw(data, options);
+      }
+
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ["Task", "Hours per Day"],
+          ["Grid", 11],
+          ["Solar", 2],
+          ["Gen", 2],
+        ]);
+
+        var options = {
+          title: "Pie Chart",
+          colors: ["#cc0000", "#00b33c", "#ffcc00","#4f6fc5"],
+        };
+
+        var chart = new google.visualization.PieChart(
+          document.getElementById("piechart")
+        );
+
+        chart.draw(data, options);
+      }
+
+      function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ["Task", "Hours per Day"],
+          ["Consumed", 11],
+          ["Fed to Grid", 2],
+        ]);
+
+        var options = {
+          title: "Donut Chart",
+          pieHole: 0.4,
+          colors: ["#cc0000", "#00b33c",],
+        };
+
+        var chart = new google.visualization.PieChart(
+          document.getElementById("donutchart")
+        );
+        chart.draw(data, options);
+      }
+
+      function drawChart4() {
+        var data = google.visualization.arrayToDataTable([
+          ["Time", "Grid", "Gen", "Solar", "Load"],
+          ["2014", 1000, 400, 200, 99],
+          ["2015", 1170, 460, 250, 88],
+          ["2016", 660, 1120, 300, 77],
+          ["2017", 1030, 540, 350, 66],
+          ["2018", 100, 40, 20, 9],
+          ["2019", 110, 49, 20, 8],
+          ["2020", 66, 120, 30, 7],
+          ["2021", 100, 50, 50, 6],
+        ]);
+
+        var options = {
+          colors: ["#cc0000", "#00b33c", "#ffcc00","#4f6fc5"],
+          chart: {
+            title: "Bar Chart 4 lines",
+            //   subtitle: "Sales, Expenses, and Profit: 2014-2017",
+          },
+          bars: "horizontal", // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(
+          document.getElementById("barchart_material")
+        );
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+      function drawChart5() {
+        var data = google.visualization.arrayToDataTable([
+          ["Time", "Grid", "Gen", "Solar", "Load"],
+          ["2014", 1000, 400, 200, 99],
+          ["2015", 1170, 460, 250, 88],
+          ["2016", 660, 1120, 300, 77],
+          ["2017", 1030, 540, 350, 66],
+  
+        ]);
+
+        var options = {
+          colors: ["#cc0000", "#00b33c", "#ffcc00","#4f6fc5"],
+          chart: {
+            title: 'Bar Chart Horizontal',
+         //   subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+  
+  </script>
+
+    <title>Fet Report</title>
+    <style>
+      h1 {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 22pt;
+      }
+      .s1 {
+        color: black;
+        font-family: "Times New Roman", serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 11.5pt;
+      }
+      .s2 {
+        color: black;
+        font-family: "Times New Roman", serif;
+        font-style: normal;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s21 {
+        color: black;
+        font-family: "Times New Roman", serif;
+        font-style: normal;
+        font-weight: 100;
+        padding-left: 136pt;
+        text-align: left;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s22 {
+        color: black;
+        font-family: "Times New Roman", serif;
+        font-style: normal;
+        font-weight: 100;
+        padding-left: 133pt;
+        text-align: left;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s23 {
+        color: black;
+        font-family: "Times New Roman", serif;
+        font-style: normal;
+        font-weight: 100;
+        padding-left: 116pt;
+        text-align: left;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s24 {
+        color: black;
+        font-family: "Times New Roman", serif;
+        font-style: normal;
+        font-weight: 100;
+        padding-left: 178pt;
+        text-align: left;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s25 {
+        color: black;
+        font-family: "Times New Roman", serif;
+        font-style: normal;
+        font-weight: 100;
+        padding-left: 156pt;
+        text-align: left;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s3 {
+        color: black;
+        font-family: Calibri, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 8pt;
+      }
+      .s4 {
+        color: black;
+        font-family: "Times New Roman", serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 8pt;
+      }
+    </style>
+  </head>
+
+  <body>
+    <u>
+      <h1 style="padding-top: 2pt; text-align: center">FET (PVT) LTD</h1>
+      <h2 style="padding-top: 2pt; text-align: center">Report Title Here</h2>
+    </u>
+
+    <table
+      style="
+        border-collapse: collapse;
+        margin-top: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+      "
+      cellspacing="0"
+    >
+      <tr style="height: 4pt; background-color: gainsboro">
+        <td
+          style="
+            width: 12%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s3" style="padding-right: 4pt; text-align: left">
+            Customer<span class="s4"> </span>Code
+          </p>
+        </td>
+        <td
+          style="
+            width: 12%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s3" style="padding-right: 2pt; text-align: left">
+            Customer Name<span class="s4"> </span>
+          </p>
+        </td>
+
+        <td
+          style="
+            width: 10%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s3" style="padding-right: 4pt; text-align: left">0-30</p>
+        </td>
+
+        <td
+          style="
+            width: 10%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s3" style="padding-right: 4pt; text-align: left">31-60</p>
+        </td>
+
+        <td
+          style="
+            width: 10%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s3" style="padding-right: 4pt; text-align: left">61-90</p>
+        </td>
+
+        <td
+          style="
+            width: 10%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s3" style="padding-right: 4pt; text-align: left">91-120</p>
+        </td>
+      </tr>
+
+      <tr style="height: 4pt">
+        <td
+          style="
+            width: 12%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s3" style="padding-right: 4pt; text-align: left">
+            <span class="s4">${item.cardCode} </span>
+          </p>
+        </td>
+        <td
+          style="
+            width: 12%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s3" style="padding-right: 2pt; text-align: left">
+            <span class="s4">${item.cardName} </span>
+          </p>
+        </td>
+        <td
+          style="
+            width: 5%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s4" style="padding-right: 2pt; text-align: left">
+            ${item.firstthirty}
+          </p>
+        </td>
+        <td
+          style="
+            width: 8%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s4" style="padding-right: 4pt; text-align: left">
+            ${item.thirtyonetosixty}
+          </p>
+        </td>
+        <td
+          style="
+            width: 8%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s4"
+            style="
+              padding-right: 3pt;
+
+              text-align: left;
+            "
+          >
+            ${item.sixtyonetoninety}
+          </p>
+        </td>
+
+        <td
+          style="
+            width: 10%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s4" style="padding-right: 4pt; text-align: left">
+            ${item.ninetyonetoonetwnety}
+          </p>
+        </td>
+      </tr>
+      <tr style="height: 4pt">
+        <td
+          style="
+            width: 12%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s3" style="padding-right: 4pt; text-align: left">
+            <span class="s4">${item.cardCode} </span>
+          </p>
+        </td>
+        <td
+          style="
+            width: 12%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s3" style="padding-right: 2pt; text-align: left">
+            <span class="s4">${item.cardName} </span>
+          </p>
+        </td>
+        <td
+          style="
+            width: 5%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s4" style="padding-right: 2pt; text-align: left">
+            ${item.firstthirty}
+          </p>
+        </td>
+        <td
+          style="
+            width: 8%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s4" style="padding-right: 4pt; text-align: left">
+            ${item.thirtyonetosixty}
+          </p>
+        </td>
+        <td
+          style="
+            width: 8%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p
+            class="s4"
+            style="
+              padding-right: 3pt;
+
+              text-align: left;
+            "
+          >
+            ${item.sixtyonetoninety}
+          </p>
+        </td>
+
+        <td
+          style="
+            width: 10%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <p class="s4" style="padding-right: 4pt; text-align: left">
+            ${item.ninetyonetoonetwnety}
+          </p>
+        </td>
+      </tr>
+    </table>
+
+    <table
+      style="
+        border-collapse: collapse;
+        margin-top: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+      "
+      cellspacing="0"
+    >
+      <tr style="background-color: gainsboro">
+        <td
+          style="
+            width: 33%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <div id="chart_div" style="width: 100%; height: 500px"></div>
+        </td>
+
+        <td
+          style="
+            width: 33%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <div id="piechart" style="width: 100%; height: 500px"></div>
+        </td>
+
+        <td
+          style="
+            width: 33%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <div id="donutchart" style="width: 100%; height: 500px"></div>
+        </td>
+      </tr>
+    </table>
+
+    <table
+      style="
+        border-collapse: collapse;
+        margin-top: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+      "
+      cellspacing="0"
+    >
+      <tr style="background-color: gainsboro">
+        <td
+          style="
+            width: 33%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <div id="barchart_material" style="width: 100%; height: 500px"></div>
+        </td>
+
+        <td
+          style="
+            width: 33%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+        <div id="columnchart_material" style="width: 100%; height: 500px;"></div>
+        </td>
+
+        <td
+          style="
+            width: 33%;
+            border-top-style: solid;
+            border-top-width: 1pt;
+            border-left-style: solid;
+            border-left-width: 1pt;
+            border-bottom-style: solid;
+            border-bottom-width: 1pt;
+            border-right-style: solid;
+            border-right-width: 1pt;
+          "
+        >
+          <!-- <div id="donutchart" style="width: 100%; height: 500px"></div> -->
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
