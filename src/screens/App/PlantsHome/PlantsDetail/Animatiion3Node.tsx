@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {Text, View, FlatList, Pressable, Image, Alert} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Text, View, FlatList, Pressable, Image, Alert } from 'react-native';
 import LottieView from 'lottie-react-native';
 
-import {PlantDetailImages} from '../../../../ui/Images';
+import { PlantDetailImages } from '../../../../ui/Images';
 import style from './styles';
 import Paho from 'paho-mqtt';
 import Loader from '../../../../ui/Loader';
-import {ActivityIndicator} from 'react-native';
-import {twoDecimal} from '../../../../utiltyFunc';
+import { ActivityIndicator } from 'react-native';
+import { twoDecimal } from '../../../../utiltyFunc';
 //import TopIconSolarC from './Components/TopIconSolar';
 //import LeftIconHomeC from './Components/LeftIconHome';
 //import RightIconGridC from './Components/RightIconGrid';
@@ -45,24 +45,24 @@ const Animation3Node = ({
 
   function onConnect() {
     // Alert.alert('onConnect here ');
-     console.log('onConnect');
-     client.subscribe(name?.plant_topic);
+    //  console.log('onConnect');
+    client.subscribe(name?.plant_topic);
   }
 
   function onConnectionLost(responseObject) {
-    console.log('onConnectionLost:' + responseObject.errorMessage);
+    /// console.log('onConnectionLost:' + responseObject.errorMessage);
     if (responseObject.errorCode !== 0) {
-      console.log('onConnectionLost:' + responseObject.errorMessage);
+    //  console.log('onConnectionLost:' + responseObject.errorMessage);
     }
   }
 
   function onMessageArrived(message) {
-   //  var x = 'Message : ' + message;
-   // console.log(x);
+    //  var x = 'Message : ' + message;
+    // console.log(x);
     // Alert.alert('message here ');
 
     if (message) {
-   //   setisLoading(true);
+      //   setisLoading(true);
       const a = JSON.parse(message.payloadString);
       console.log(a, '-->');
       setsolarVal(a?.d?.SOLAR_POWER);
@@ -71,13 +71,13 @@ const Animation3Node = ({
       setloadVal(a?.d?.LOAD_POWER);
 
       if (a?.d?.SOLAR_POWER[0] > 0 && a?.d?.GRID_POWER < 0) {
-        console.log(a?.d?.SOLAR_POWER[0], 'SOLAR_POWER');
+        //   console.log(a?.d?.SOLAR_POWER[0], 'SOLAR_POWER');
         setAnimation3Type(2);
       } else if (a?.d?.SOLAR_POWER[0] > 0 && a?.d?.GRID_POWER > 0) {
-        console.log(a?.d?.GRID_POWER[0], 'GRID_POWER');
+        //  console.log(a?.d?.GRID_POWER[0], 'GRID_POWER');
         setAnimation3Type(3);
       } else {
-        console.log(a?.d?.LOAD_POWER[0], 'LOAD_POWER');
+        //  console.log(a?.d?.LOAD_POWER[0], 'LOAD_POWER');
         setAnimation3Type(1);
       }
       setisLoading(false);
@@ -85,7 +85,7 @@ const Animation3Node = ({
   }
   const client = new Paho.Client('broker.hivemq.com', 8000, 'uname');
   client.onMessageArrived = onMessageArrived;
-  client.connect({onSuccess: onConnect, useSSL: false});
+  client.connect({ onSuccess: onConnect, useSSL: false });
   client.onConnectionLost = onConnectionLost;
 
   // let client = new Paho.Client(
@@ -136,7 +136,7 @@ const Animation3Node = ({
 
   return (
     <View style={style.uperWrap}>
-      <Text style={style.plantName}>{name.plant_name} 3 node</Text>
+      <Text style={style.plantName}>{name.plant_name} </Text>
       {/* Top Icom */}
       {/* <TopIconSolarC
         setAnimation3Type={setAnimation3Type}

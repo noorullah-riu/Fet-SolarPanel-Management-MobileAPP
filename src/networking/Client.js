@@ -10,7 +10,7 @@ export const client = axios.create({
   // baseURL: 'http://182.180.160.204:8080/fet/app/api/', //SP db
   //baseURL: 'https://solar.exodus.pk/fet/app/api/', //SP db
 
-  baseURL: 'https://fusion.denovonet.com/fet/app/api/',
+  baseURL: 'https://app.fent.com.pk/app/api/',
   // baseURL: 'https://fet.iot.fent.com.pk/app/api/',
   //  182.180.160.204:8080/fet/
 });

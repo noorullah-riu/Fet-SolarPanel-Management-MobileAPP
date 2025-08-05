@@ -1031,7 +1031,7 @@ export const MonthChartCard = ({ navigation }: any) => {
     };
     try {
       dispatch(Services.getChartMonthly(obj)).then(data => {
-        //  console.log(JSON.stringify(data.payload.pieData ), 'from stats');
+        console.log(JSON.stringify(data.payload), 'from stat month');
         //   const a = JSON.parse(message.payloadString);
         if (data.payload.message) {
           let arrayEM = [];
@@ -1668,7 +1668,7 @@ export const MonthChartCard = ({ navigation }: any) => {
       ShowToast('error', 'No records.');
       setisLoading(false);
     } finally {
-      //  setisLoading(false);
+      setisLoading(false);
     }
   };
 

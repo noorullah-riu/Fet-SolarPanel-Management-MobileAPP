@@ -1432,7 +1432,7 @@ export const YearChartCard = ({ navigation }: any) => {
       ShowToast('error', 'No records.');
       setisLoading(false);
     } finally {
-      //  setisLoading(false);
+      setisLoading(false);
     }
   };
 
