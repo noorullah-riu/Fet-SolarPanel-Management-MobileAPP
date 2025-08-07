@@ -84,7 +84,7 @@ export const Login: React.FC<Props> = props => {
   const passwordText = `Password`;
   const username = `Email`;
   const singinTxt = 'Sign In';
-  const versionTxt = 'App Version 0.10.9';
+  const versionTxt = 'App Version 0.12.0';
   const loginValidationSchema = yup.object().shape({
     Email: yup
       .string()

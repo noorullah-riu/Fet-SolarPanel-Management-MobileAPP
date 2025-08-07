@@ -143,7 +143,7 @@ LCPRed:{
     borderRadius: rfSpacing.xs,
     borderWidth: 1,
     alignItems: 'center',
-    borderColor: colors.fetBlue,
+    borderColor: colors.fetBlueO,
     backgroundColor: colors.fetActive,
   },
   leftTxt: {

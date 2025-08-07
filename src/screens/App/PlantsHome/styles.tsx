@@ -35,7 +35,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
 
-    borderColor: colors.fetBlue,
+    borderColor: colors.fetBlueO,
     backgroundColor: colors.fetActive,
     borderWidth: 1,
   },

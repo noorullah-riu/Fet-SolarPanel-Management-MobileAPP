@@ -7,7 +7,7 @@ import rfSpacing from '../../../../theme/rfSpacing';
 const screenWidth = Dimensions.get('window').width;
 
 const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus, SolarStatus, GenStatus, LoadStatus, lineData, lineData2, lineData3, lineData4 }: any) => {
-    console.log("chart rendering --------------->");
+  //  console.log("chart rendering --------------->");
 
     const activeData = GridStatus ? lineData : SolarStatus ? lineData2 : GenStatus ? lineData3 : lineData4;
     const numberOfDataPoints = activeData.length;
@@ -119,10 +119,14 @@ const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus
                     //    initialSpacing={5}
                     yAxisColor="#aaa"
                     xAxisColor="#aaa"
-                    color1="#cc0000"
-                    color2="#00b33c"
-                    color3="#ffcc00"
-                    color4="#9fbbf4"
+                    color1='#3798FE'
+                    //'"#cc0000"
+                    color2='#18CF87'
+                    // "#00b33c"
+                    color3= '#ec518fff'
+                    //"#ffcc00"
+                    color4= '#ffcc00'
+                    //"#9fbbf4"
                     textColor1="green"
                     hideDataPoints
                     initialSpacing={0} // Set dynamic spacing
@@ -130,10 +134,14 @@ const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus
                     //   rotateLabel
                     //     dataPointsColor1="blue"
                     //    dataPointsColor2="red"
-                    startFillColor1="#cc0000"
-                    startFillColor2="#00b33c"
-                    startFillColor3="#ffcc00"
-                    startFillColor4="#9fbbf4"
+                    startFillColor1='#3798FE'
+                    //"#cc0000"
+                    startFillColor2='#18CF87'
+                    //"#00b33c"
+                    startFillColor3='#ec518fff'
+                    //"#ffcc00"
+                    startFillColor4= '#ffcc00'
+                    //"#9fbbf4"
                     hideRules
                     startOpacity={0.4}
                     endOpacity={0.1}
@@ -147,13 +155,13 @@ const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus
                     //   showStripOnFocus ={true}
                     //    showTextOnFocus ={true}
                     //  onPointerDeactivate={handlePointerDeactivation}
-                 //   onPress={(index) => console.log(index)}
+                    //   onPress={(index) => console.log(index)}
 
                     pointerConfig={{
                         //   onPointersChange:{() => console.log("focused")}
                         //    onPointersChange: (point) => console.log(point),
 
-                     //   activatePointersOnLongPress: true,
+                        //   activatePointersOnLongPress: true,
                         //   activatePointersOnLongPress: false,
                         autoAdjustPointerLabelPosition: true,
                         //      activatePointersDelay: 0,

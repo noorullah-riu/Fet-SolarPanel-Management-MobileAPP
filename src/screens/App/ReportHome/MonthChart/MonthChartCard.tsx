@@ -1031,7 +1031,7 @@ export const MonthChartCard = ({ navigation }: any) => {
     };
     try {
       dispatch(Services.getChartMonthly(obj)).then(data => {
-        console.log(JSON.stringify(data.payload), 'from stat month');
+      //  console.log(JSON.stringify(data.payload), 'from stat month');
         //   const a = JSON.parse(message.payloadString);
         if (data.payload.message) {
           let arrayEM = [];

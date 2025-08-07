@@ -65,7 +65,7 @@ export const DayChartCard = ({ navigation }: any) => {
   const [SolarStatus, setSolarStatus] = useState(true);
   const [GenStatus, setGenStatus] = useState(true);
   const [LoadStatus, setLoadStatus] = useState(true);
-  const [LoadMax, setLoadMax] = useState(200);
+  const [LoadMax, setLoadMax] = useState(100);
 
   const [lineData, setlineData] = useState([
     {
@@ -674,16 +674,17 @@ export const DayChartCard = ({ navigation }: any) => {
 
             if (propertiesItemG != undefined && propertiesItemG?.length != 0) {
 
-              let maxG = propertiesItemG[0];
+              var maxG = propertiesItemG[0];
               for (let G = 1; G < propertiesItemG?.length; ++G) {
-                if (propertiesItemG[G] > maxG) {
+                //        console.log(propertiesItemG[G], '-----> propertiesItemG  ');
+                if (propertiesItemG[G]?.value > maxG?.value) {
                   maxG = propertiesItemG[G];
                 }
               }
               console.log(maxG?.value, '-----> Max Grid ');
 
-              
-           //   const slicedArrayG = propertiesItemG.slice(0, 50);
+
+              //   const slicedArrayG = propertiesItemG.slice(0, 50);
               setlineData(propertiesItemG);
             }
 
@@ -696,17 +697,18 @@ export const DayChartCard = ({ navigation }: any) => {
               return propertties;
             });
             if (propertiesItemS != undefined && propertiesItemS?.length != 0) {
-           //   const slicedArrayS = propertiesItemS.slice(0, 50);
+              //   const slicedArrayS = propertiesItemS.slice(0, 50);
 
-           let maxSo = propertiesItemS[0];
-           for (let L = 1; L < propertiesItemS?.length; ++L) {
-             if (propertiesItemS[L] > maxSo) {
-               maxSo = propertiesItemS[L];
-             }
-           }
-           console.log(maxSo?.value, '-----> Max SOl ');
+              var maxSo = propertiesItemS[0];
+              for (let L = 1; L < propertiesItemS?.length; ++L) {
+                //        console.log(propertiesItemS[L], '-----> propertiesItemS  ');
+                if (propertiesItemS[L]?.value > maxSo?.value) {
+                  maxSo = propertiesItemS[L];
+                }
+              }
+              console.log(maxSo?.value, '-----> Max SOl ');
 
-           
+
               setlineData2(propertiesItemS);
             }
 
@@ -722,7 +724,7 @@ export const DayChartCard = ({ navigation }: any) => {
               propertiesItemGen != undefined &&
               propertiesItemGen?.length != 0
             ) {
-           //   const slicedArrayG = propertiesItemGen.slice(0, 50);
+              //   const slicedArrayG = propertiesItemGen.slice(0, 50);
               setlineData3(propertiesItemGen);
 
             }
@@ -740,7 +742,7 @@ export const DayChartCard = ({ navigation }: any) => {
               propertiesItemLoad?.length != 0
             ) {
 
-        //      const slicedArrayL = propertiesItemLoad.slice(0, 50);
+              //      const slicedArrayL = propertiesItemLoad.slice(0, 50);
               setlineData4(propertiesItemLoad);
             }
 
@@ -761,34 +763,56 @@ export const DayChartCard = ({ navigation }: any) => {
             //  console.log(propertiesItemGen, '-----> propertiesItemGen ');
             //   console.log(propertiesItemLoad[0], '-----> propertiesItemLoad ');
             //     console.log(propertiesItemS, '-----> propertiesItemS ');
-            console.log( 'before -----> Max Load ');
+            //     console.log( 'before -----> Max Load ');
+
+            // let maxS = propertiesItemS[0];
+            // for (let i = 1; i < propertiesItemS?.length; ++i) {
+            //   if (propertiesItemS[i] > maxS) {
+            //     maxS = propertiesItemS[i];
+            //     console.log(maxS, '-----> MaxS  ');
+            //   }
+            // }
+            // console.log(maxS?.value, '-----> MaxS');
+
+            //     let maxG = propertiesItemG[0];
+            // for (let i = 1; i < propertiesItemG?.length; ++i) {
+            //   if (propertiesItemG[i] > maxG) {
+            //     maxG = propertiesItemG[i];
+            //     console.log(maxG, '-----> MaxG  ');
+            //   }
+            // }
+            // console.log(maxG?.value, '-----> MaxG');
+
             let max = propertiesItemLoad[0];
             for (let i = 1; i < propertiesItemLoad?.length; ++i) {
-              if (propertiesItemLoad[i] > max) {
+              //       console.log(propertiesItemLoad[i], '-----> propertiesItemLoad  ');
+
+              if (propertiesItemLoad[i]?.value > max?.value) {
                 max = propertiesItemLoad[i];
-           //     console.log(max, '-----> Max  ');
+                //  console.log(max, '-----> Max  ');
               }
             }
             console.log(max?.value, '-----> Max Load ');
 
-     
+
             let maxGen = propertiesItemGen[0];
             for (let k = 1; k < propertiesItemGen?.length; ++k) {
-              if (propertiesItemGen[k] > maxGen) {
+              //      console.log(propertiesItemGen[k], '-----> propertiesItemGen  ');
+              if (propertiesItemGen[k]?.value > maxGen?.value) {
                 maxGen = propertiesItemGen[k];
               }
             }
             console.log(maxGen?.value, '-----> Max Gen ');
 
-  
-            //  const largeVal = Math.max(max, maxG, maxGen, maxSo);
+            var largeVal = 100
+            largeVal = Math.max(max?.value, maxGen?.value, maxSo?.value, maxG?.value);
 
 
-            //    console.log(largeVal, "---->");
+            console.log(largeVal, " largeVal ---->");
             // if (){
 
             // }
-         //   setLoadMax(max?.value + maxG?.value + maxGen?.value + maxSo?.value );
+            setLoadMax(largeVal);
           }
 
           if (data?.payload?.fuel_save?.kwh?.length > 0) {
@@ -858,7 +882,7 @@ export const DayChartCard = ({ navigation }: any) => {
             setFSMIX(itemMix);
             setFSReveue(data?.payload?.fuel_save?.revenue?.total);
           }
-          setisLoading(false);  
+          setisLoading(false);
         }
       });
 
@@ -1003,7 +1027,7 @@ export const DayChartCard = ({ navigation }: any) => {
     lineData4={lineData4}
     isPointerActive={isPointerActive} setIsPointerActive={setIsPointerActive}
   />
-    , [GenStatus, LoadStatus, GridStatus, SolarStatus, isPointerActive, lineData, lineData2, lineData3, lineData4]);
+    , [GenStatus,LoadMax, LoadStatus, GridStatus, SolarStatus, isPointerActive, lineData, lineData2, lineData3, lineData4]);
 
   useEffect(() => {
     getCurrentDate();

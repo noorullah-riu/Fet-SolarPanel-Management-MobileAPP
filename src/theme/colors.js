@@ -1,5 +1,5 @@
 import React from 'react';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 export default {
   primary: '#F4F4F4',
   secondary: '#428bca',
@@ -36,18 +36,27 @@ export default {
   fetBlack: '#3a3c41',
   fetGray: '#7d7d7d',
   fetYellow: '#f7c475',
-  fetLightGray:'#f6f6f6',
-  fetBlue: '#9fbbf4',
-  fetLightBlue:"#c9d1f3",
-  fetWhite:"#fff",
-  fetActive:"#f0f4ff",
-  fetInActive:"#f8f8f8",
-  fetLoad:"#7D1007",
+  fetLightGray: '#f6f6f6',
 
-  fet1:"#cc0000",
-  fet2:"#00b33c",
-  fet3:"#ffcc00",
+  fetBlue: '#ffcc00',// '#9fbbf4',
+  fetBlueO: '#9fbbf4',
+  
+  fetLightBlue: "#c9d1f3",
+  fetWhite: "#fff",
+  fetActive: "#f0f4ff",
+  fetInActive: "#f8f8f8",
+  fetLoad: "#7D1007",
+
+  fet1: '#3798FE',//"#cc0000",
+  fet2: '#18CF87',// "#00b33c",
+  fet3: '#ec518fff',// "#ffcc00",
   /////
+  // 1: Use green color for solar   color code = #18CF87
+  // 2: Use the blue color for the grid       color code = #3798FE
+  // 3: Use the pink color for the generator color code #ec518fff
+  // 4: Use the yellow color for the load
+
+
 
   font_grey: '#656565',
   white: '#FFFFFF',
