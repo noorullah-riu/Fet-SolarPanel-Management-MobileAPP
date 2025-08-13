@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect, useRef} from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import {
   ScrollView,
   Image,
@@ -16,7 +16,7 @@ import TimeBar from '../Components/TimeBar';
 import BarChart4Gen from '../Components/BarCHart4Gen';
 import FuelSaveBarChartDiv from '../../ReportHome/Components/FuelSaveBarChart';
 
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Services from '../../../../networking/auth/Services';
 import EcomContext from '../../../../contextApi/DataProvider';
 import Loader from '../../../../ui/Loader';
@@ -24,9 +24,9 @@ import ShowToast from '../../../../ui/Toast';
 import Orientation from 'react-native-orientation-locker';
 import { FullLineChartComp } from '../../ReportHome/FullChart/FullChartComp';
 
-export const DeviceDetailGen = ({navigation, route}: any) => {
-  const {routeVal} = route.params;
-  const {plant, setplant, Data}: any = useContext(EcomContext);
+export const DeviceDetailGen = ({ navigation, route }: any) => {
+  const { routeVal } = route.params;
+  const { plant, setplant, Data }: any = useContext(EcomContext);
   // console.log(routeVal, '-----> Device Item Selected');
 
   const [isLoading, setisLoading] = useState(false);
@@ -73,7 +73,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
     label: '04:00',
     labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
   },]);
- // const [LoadMax, setLoadMax] = useState(200);
+  // const [LoadMax, setLoadMax] = useState(200);
 
   const [isModalVisible, setModalVisible] = useState(false);
   const toggleModalIn = () => {
@@ -100,73 +100,73 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '00:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 20, frontColor: colors.fet3},
+    { value: 20, frontColor: colors.fet3 },
     {
       value: 50,
       label: '03:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 40, frontColor: colors.fet3},
+    { value: 40, frontColor: colors.fet3 },
     {
       value: 75,
       label: '06:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 25, frontColor: colors.fet3},
+    { value: 25, frontColor: colors.fet3 },
     {
       value: 30,
       label: '09:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 20, frontColor: colors.fet3},
+    { value: 20, frontColor: colors.fet3 },
     {
       value: 60,
       label: '12:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 40, frontColor: colors.fet3},
+    { value: 40, frontColor: colors.fet3 },
     {
       value: 65,
       label: '15:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 30, frontColor: colors.fet3},
+    { value: 30, frontColor: colors.fet3 },
     {
       value: 65,
       label: '18:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 30, frontColor: colors.fet3},
+    { value: 30, frontColor: colors.fet3 },
     {
       value: 65,
       label: '21:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 30, frontColor: colors.fet3},
+    { value: 30, frontColor: colors.fet3 },
   ];
   const barDataGreen = [
     {
@@ -174,7 +174,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '00:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -182,7 +182,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '03:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -190,7 +190,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '06:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -198,7 +198,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '09:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -206,7 +206,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '12:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -214,7 +214,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '15:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -222,7 +222,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '18:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -230,7 +230,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '21:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
   ];
@@ -240,7 +240,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '00:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -248,7 +248,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '03:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -256,7 +256,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '06:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -264,7 +264,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '09:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -272,7 +272,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '12:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -280,7 +280,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '15:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -288,7 +288,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '18:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -296,7 +296,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
       label: '21:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
   ];
@@ -305,57 +305,57 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
     {
       value: 0,
       label: '00:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
     {
       value: 10,
       label: '04:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
     {
       value: 8,
       label: '08:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
     {
       value: 58,
       label: '12:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
     {
       value: 56,
       label: '16:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
     {
       value: 78,
       label: '20:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
   ];
   const lineData2 = [
-    {value: 0, label: '00:00'},
-    {value: 20, label: '04:00'},
-    {value: 18, label: '08:00'},
-    {value: 40, label: '12:00'},
-    {value: 36, label: '16:00'},
-    {value: 60, label: '20:00'},
+    { value: 0, label: '00:00' },
+    { value: 20, label: '04:00' },
+    { value: 18, label: '08:00' },
+    { value: 40, label: '12:00' },
+    { value: 36, label: '16:00' },
+    { value: 60, label: '20:00' },
   ];
   const lineData3 = [
-    {value: 0, label: '00:00'},
-    {value: 30, label: '04:00'},
-    {value: 28, label: '08:00'},
-    {value: 50, label: '12:00'},
-    {value: 16, label: '16:00'},
-    {value: 90, label: '20:00'},
+    { value: 0, label: '00:00' },
+    { value: 30, label: '04:00' },
+    { value: 28, label: '08:00' },
+    { value: 50, label: '12:00' },
+    { value: 16, label: '16:00' },
+    { value: 90, label: '20:00' },
   ];
   const lineData4 = [
-    {value: 0, label: '00:00'},
-    {value: 20, label: '04:00'},
-    {value: 18, label: '08:00'},
-    {value: 40, label: '12:00'},
-    {value: 26, label: '16:00'},
-    {value: 50, label: '20:00'},
+    { value: 0, label: '00:00' },
+    { value: 20, label: '04:00' },
+    { value: 18, label: '08:00' },
+    { value: 40, label: '12:00' },
+    { value: 26, label: '16:00' },
+    { value: 50, label: '20:00' },
   ];
   const getDevicesList = async () => {
     try {
@@ -400,7 +400,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
           let properties = {
             value: item.value,
             label: item.label,
-            labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
           };
           return properties;
         });
@@ -409,7 +409,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
           let properties = {
             value: item.value,
             label: item.label,
-            labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
           };
           return properties;
         });
@@ -417,7 +417,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
           let properties = {
             value: item.value,
             label: item.label,
-            labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
           };
           return properties;
         });
@@ -425,7 +425,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
           let properties = {
             value: item.value,
             label: item.label,
-            labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
           };
           return properties;
         });
@@ -436,7 +436,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
             label: item.label,
             spacing: 30,
             labelWidth: 30,
-            labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
             frontColor: colors.fet2,
           };
           return properties;
@@ -448,19 +448,12 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
             label: item.label,
             spacing: 30,
             labelWidth: 30,
-            labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
             frontColor: colors.fet3,
           };
           return properties;
         });
 
-        let max = itemBlue[0];
-        for (let i = 1; i < itemBlue; ++i) {
-          if (itemBlue[i] > max) {
-            max = itemBlue[i];
-          }
-        }
-        setLoadMax(max?.value + 20);
 
         let itemMixFS = [];
         itemGreen2?.forEach(function (item, index) {
@@ -497,6 +490,42 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
           });
         });
 
+
+        let maxB = itemBlue[0];
+           console.log(maxB, 'maxB -->');
+        for (let i = 1; i < itemBlue.length; ++i) {
+          if (itemBlue[i].value > maxB.value) {
+            maxB = itemBlue[i];
+          }
+          //    console.log(maxB, 'maxB');
+        }
+        let maxR = itemRed[0];
+        for (let i = 1; i < itemRed.length; ++i) {
+          if (itemRed[i].value > maxR.value) {
+            maxR = itemRed[i];
+          }
+          //    console.log(maxR, 'maxR');
+        }
+        let maxY = itemYellow[0];
+        for (let i = 1; i < itemYellow.length; ++i) {
+          if (itemYellow[i].value > maxY.value) {
+            maxY = itemYellow[i];
+          }
+          //  console.log(maxY, 'maxY');
+        }
+        let maxG = itemGreen[0];
+        for (let i = 1; i < itemGreen.length; ++i) {
+          if (itemGreen[i].value > maxG.value) {
+            maxG = itemGreen[i];
+          }
+          //   console.log(maxG, 'maxG');
+        }
+        var largeVal = 100
+        largeVal = Math.max(maxB?.value, maxR?.value, maxY?.value, maxG?.value);
+        console.log(maxB?.value, maxR?.value, maxY?.value, maxG?.value, '-------->');
+        console.log(largeVal, '-------->');
+
+        setLoadMax(largeVal);
         setMIXD(itemMixFS);
 
         setGI(itemGreen2);
@@ -558,7 +587,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
         title={'Device Detail Gen'}
         leftCallBack={() => navigation.goBack()}
       />
-           <FullLineChartComp
+      <FullLineChartComp
         isModalVisible={isModalVisible}
         toggleModalOut={toggleModalOut}
         htmlCode={htmlCode}
@@ -604,7 +633,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
           </View>
 
           <View style={style.rowStart}>
-            <View style={{flex: 3}}>
+            <View style={{ flex: 3 }}>
               <Text style={style.leftTxt}>
                 Average Phase to Neutral Voltage
               </Text>
@@ -650,7 +679,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
           </View>
 
           <View style={style.rowStart}>
-            <View style={{flex: 3}}>
+            <View style={{ flex: 3 }}>
               <Text style={style.leftTxt}>Average Phase to Phase Voltage</Text>
             </View>
             <View style={style.f1}>
@@ -848,7 +877,7 @@ export const DeviceDetailGen = ({navigation, route}: any) => {
 
         {/* Line Chart */}
         <LineChart4Devices
-          LoadMax={LoadMax}
+          LoadMax={LoadMax > 0 ? LoadMax : 100}
           lineData={linedataGreen}
           lineData2={linedataYellow}
           lineData3={linedataRed}

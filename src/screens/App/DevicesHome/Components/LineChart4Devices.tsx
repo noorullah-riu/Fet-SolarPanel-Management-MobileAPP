@@ -63,57 +63,57 @@ const LineChart4Devices = ({
 
   const pointerLabelComponent = (items) => {
     return (
-        <View
-            style={{
-                height: 90,
-                width: 100,
-                justifyContent: 'center',
-                marginTop: 'auto',
-                // marginLeft: 40,
-            }}>
-            <Text style={style.LCPointerTextGray}>
-                {items[0].label || 'N/A'}
+      <View
+        style={{
+          height: 90,
+          width: 100,
+          justifyContent: 'center',
+          marginTop: 'auto',
+          // marginLeft: 40,
+        }}>
+        <Text style={style.LCPointerTextGray}>
+          {items[0].label || 'N/A'}
+        </Text>
+        {GridStatus ? (
+          <View style={style.LCLabelTxtWrap}>
+            <Text style={style.LCPointerTextRed}>
+              {items[0]?.value}
             </Text>
-            {GridStatus ? (
-                <View style={style.LCLabelTxtWrap}>
-                    <Text style={style.LCPointerTextRed}>
-                        {items[0]?.value}
-                    </Text>
-                </View>
-            ) : (
-                <></>
-            )}
+          </View>
+        ) : (
+          <></>
+        )}
 
-            {SolarStatus ? (
-                <View style={style.LCLabelTxtWrap}>
-                    <Text style={style.LCPointerTextGreen}>
-                        {items[1]?.value}
-                    </Text>
-                </View>
-            ) : (
-                <></>
-            )}
-            {GenStatus ? (
-                <View style={style.LCLabelTxtWrap}>
-                    <Text style={style.LCPointerTextYellow}>
-                        {items[2]?.value}
-                    </Text>
-                </View>
-            ) : (
-                <></>
-            )}
-            {LoadStatus ? (
-                <View style={style.LCLabelTxtWrap}>
-                    <Text style={style.LCPointerTextBlue}>
-                        {items[3]?.value}
-                    </Text>
-                </View>
-            ) : (
-                <></>
-            )}
-        </View>
+        {SolarStatus ? (
+          <View style={style.LCLabelTxtWrap}>
+            <Text style={style.LCPointerTextGreen}>
+              {items[1]?.value}
+            </Text>
+          </View>
+        ) : (
+          <></>
+        )}
+        {GenStatus ? (
+          <View style={style.LCLabelTxtWrap}>
+            <Text style={style.LCPointerTextYellow}>
+              {items[2]?.value}
+            </Text>
+          </View>
+        ) : (
+          <></>
+        )}
+        {LoadStatus ? (
+          <View style={style.LCLabelTxtWrap}>
+            <Text style={style.LCPointerTextBlue}>
+              {items[3]?.value}
+            </Text>
+          </View>
+        ) : (
+          <></>
+        )}
+      </View>
     );
-}
+  }
   const dataDefault = [
     {
       value: 0,
@@ -125,7 +125,7 @@ const LineChart4Devices = ({
     <>
       {/* Line Chart */}
       <View style={style.pDiv}>
-      <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row" }}>
           <View style={{ flex: 1 }}>
             {/* <Text style={style.CCTextY}>KW </Text> */}
           </View>
@@ -149,7 +149,7 @@ const LineChart4Devices = ({
           // }}
           //   hideDataPoints={true}
           //       noOfSections={10}
-            maxValue={400}
+          maxValue={LoadMax}
           //    data={lineData}
           data={
             GridStatus
@@ -171,13 +171,20 @@ const LineChart4Devices = ({
 
           yAxisTextStyle={{ color: colors.fetGray, fontSize: rfSpacing.m }}
           initialSpacing={5}
+
+
           yAxisColor="#aaa"
           xAxisColor="#aaa"
-          color1="#cc0000"
-          color2="#00b33c"
-          color3="#ffcc00"
-          color4="#9fbbf4"
-          //   textColor1="green"
+          color1='#3798FE'
+          //'"#cc0000"
+          color2='#18CF87'
+          // "#00b33c"
+          color3='#ec518fff'
+          //"#ffcc00"
+          color4='#ffcc00'
+          //"#9fbbf4"
+          textColor1="green"
+
           hideDataPoints
           //     disableScroll={true}
           //   rotateLabel
@@ -197,8 +204,8 @@ const LineChart4Devices = ({
             //   onPointersChange:{() => console.log("focused")}
             //    onPointersChange: (point) => console.log(point),
 
-         //   activatePointersOnLongPress: true,
-           activatePointersOnLongPress: false,
+            //   activatePointersOnLongPress: true,
+            activatePointersOnLongPress: false,
             autoAdjustPointerLabelPosition: true,
             //      activatePointersDelay: 0,
             strokeDashArray: [2, 5],
@@ -212,8 +219,8 @@ const LineChart4Devices = ({
             activatePointersDelay: 150,
             pointerLabelComponent: pointerLabelComponent,
 
-         
-        }}
+
+          }}
         />
 
         <View

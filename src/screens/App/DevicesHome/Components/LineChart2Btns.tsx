@@ -8,7 +8,7 @@ import rfSpacing from '../../../../theme/rfSpacing';
 
 import { LineChart, PieChart } from 'react-native-gifted-charts';
 
-const LineChart2Btns = ({ lineData, lineData2, toggleModalInDC }) => {
+const LineChart2Btns = ({ LoadMax, lineData, lineData2, toggleModalInDC }) => {
   const [GridStatus, setGridStatus] = useState(true);
   const [SolarStatus, setSolarStatus] = useState(false);
 
@@ -31,39 +31,39 @@ const LineChart2Btns = ({ lineData, lineData2, toggleModalInDC }) => {
 
   const pointerLabelComponent = (items) => {
     return (
-        <View
-            style={{
-                height: 90,
-                width: 100,
-                justifyContent: 'center',
-                marginTop: 'auto',
-                // marginLeft: 40,
-            }}>
-            <Text style={style.LCPointerTextGray}>
-                {items[0].label || 'N/A'}
+      <View
+        style={{
+          height: 90,
+          width: 100,
+          justifyContent: 'center',
+          marginTop: 'auto',
+          // marginLeft: 40,
+        }}>
+        <Text style={style.LCPointerTextGray}>
+          {items[0].label || 'N/A'}
+        </Text>
+        {GridStatus ? (
+          <View style={style.LCLabelTxtWrap}>
+            <Text style={style.LCPointerTextRed}>
+              {items[0]?.value}
             </Text>
-            {GridStatus ? (
-                <View style={style.LCLabelTxtWrap}>
-                    <Text style={style.LCPointerTextRed}>
-                        {items[0]?.value}
-                    </Text>
-                </View>
-            ) : (
-                <></>
-            )}
+          </View>
+        ) : (
+          <></>
+        )}
 
-            {SolarStatus ? (
-                <View style={style.LCLabelTxtWrap}>
-                    <Text style={style.LCPointerTextGreen}>
-                        {items[1]?.value}
-                    </Text>
-                </View>
-            ) : (
-                <></>
-            )}
-        </View>
+        {SolarStatus ? (
+          <View style={style.LCLabelTxtWrap}>
+            <Text style={style.LCPointerTextGreen}>
+              {items[1]?.value}
+            </Text>
+          </View>
+        ) : (
+          <></>
+        )}
+      </View>
     );
-}
+  }
   const dataDefault = [
     {
       value: 0,
@@ -93,6 +93,7 @@ const LineChart2Btns = ({ lineData, lineData2, toggleModalInDC }) => {
           <LineChart
             //  areaChart
             //   isAnimated={true}
+            maxValue={LoadMax}
             curved
             thickness={0.5}
             noOfSections={5}
@@ -125,28 +126,28 @@ const LineChart2Btns = ({ lineData, lineData2, toggleModalInDC }) => {
             endOpacity={0.1}
 
 
-            
-          pointerConfig={{
-            //   onPointersChange:{() => console.log("focused")}
-            //    onPointersChange: (point) => console.log(point),
 
-         //   activatePointersOnLongPress: true,
-           activatePointersOnLongPress: false,
-            autoAdjustPointerLabelPosition: true,
-            //      activatePointersDelay: 0,
-            strokeDashArray: [2, 5],
-            radius: 2,
-            persistPointer: true,
-            pointerVanishDelay: 1000000,
-            pointerStripColor: 'black',
-            pointerStripWidth: 2,
-            pointerColor: 'red',
-            pointerStripUptoDataPoint: true,
-            activatePointersDelay: 150,
-            pointerLabelComponent: pointerLabelComponent,
+            pointerConfig={{
+              //   onPointersChange:{() => console.log("focused")}
+              //    onPointersChange: (point) => console.log(point),
 
-         
-        }}
+              //   activatePointersOnLongPress: true,
+              activatePointersOnLongPress: false,
+              autoAdjustPointerLabelPosition: true,
+              //      activatePointersDelay: 0,
+              strokeDashArray: [2, 5],
+              radius: 2,
+              persistPointer: true,
+              pointerVanishDelay: 1000000,
+              pointerStripColor: 'black',
+              pointerStripWidth: 2,
+              pointerColor: 'red',
+              pointerStripUptoDataPoint: true,
+              activatePointersDelay: 150,
+              pointerLabelComponent: pointerLabelComponent,
+
+
+            }}
           />
         </View>
         {/* </ReactNativeZoomableView> */}

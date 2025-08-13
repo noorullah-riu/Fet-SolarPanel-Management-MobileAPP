@@ -99,6 +99,7 @@ export const DeviceDetail = ({ navigation, route }: any) => {
 
 
   const [LoadMax, setLoadMax] = useState(0);
+  const [LoadMax2, setLoadMax2] = useState(0);
   const [htmlCode, sethtmlCode] = useState('');
   const [htmlCodeDC, sethtmlCodeDC] = useState('');
 
@@ -279,6 +280,65 @@ export const DeviceDetail = ({ navigation, route }: any) => {
             };
             return properties;
           });
+
+
+          let maxB = itemBlue[0];
+          //   console.log(maxB, 'maxB -->');
+          for (let i = 1; i < itemBlue.length; ++i) {
+            if (itemBlue[i].value > maxB.value) {
+              maxB = itemBlue[i];
+            }
+            //    console.log(maxB, 'maxB');
+          }
+          let maxR = itemRed[0];
+          for (let i = 1; i < itemRed.length; ++i) {
+            if (itemRed[i].value > maxR.value) {
+              maxR = itemRed[i];
+            }
+            //    console.log(maxR, 'maxR');
+          }
+          let maxY = itemYellow[0];
+          for (let i = 1; i < itemYellow.length; ++i) {
+            if (itemYellow[i].value > maxY.value) {
+              maxY = itemYellow[i];
+            }
+            //  console.log(maxY, 'maxY');
+          }
+          let maxG = itemGreen[0];
+          for (let i = 1; i < itemGreen.length; ++i) {
+            if (itemGreen[i].value > maxG.value) {
+              maxG = itemGreen[i];
+            }
+            //   console.log(maxG, 'maxG');
+          }
+          var largeVal = 100
+          largeVal = Math.max(maxB?.value, maxR?.value, maxY?.value, maxG?.value);
+          //  console.log(maxB?.value, maxR?.value, maxY?.value, maxG?.value, '-------->');
+          //  console.log(largeVal, '-------->');
+
+          setLoadMax(largeVal);
+
+          let maxG2 = itemGreen2[0];
+          for (let i = 1; i < itemGreen2.length; ++i) {
+            if (itemGreen2[i].value > maxG2.value) {
+              maxG2 = itemGreen2[i];
+            }
+            //  console.log(maxY, 'maxY');
+          }
+          let maxY2 = itemYellow2[0];
+          for (let i = 1; i < itemYellow2.length; ++i) {
+            if (itemYellow2[i].value > maxY2.value) {
+              maxY2 = itemYellow2[i];
+            }
+            //   console.log(maxG, 'maxG');
+          }
+          var largeVal2 = 100
+          largeVal2 = Math.max(maxY2?.value, maxG2?.value,);
+
+          console.log(maxY2?.value, maxG2?.value, '-------->');
+          console.log(largeVal2, '-------->');
+          setLoadMax2(largeVal2)
+
           setDCI(itemGreen2);
           setDCV(itemYellow2);
           //   console.log(itemGreen, 'itemGreen');
@@ -287,14 +347,6 @@ export const DeviceDetail = ({ navigation, route }: any) => {
           setLineDataYellow(itemYellow);
           setLineDataRed(itemRed);
           setLineDataBlue(itemBlue);
-
-          let max = itemBlue[0];
-          for (let i = 1; i < itemBlue; ++i) {
-            if (itemBlue[i] > max) {
-              max = itemBlue[i];
-            }
-          }
-          setLoadMax(max?.value + 20);
 
           setisLoading(false);
         }
@@ -323,54 +375,7 @@ export const DeviceDetail = ({ navigation, route }: any) => {
   };
 
   const getLIneChartDataIV = async date => { };
-  const getLIneChartDataIV2 = async date => {
-    setisLoading(true);
-    let obj = {
-      plant: plant,
-      token: Data,
-      deviceID: routeVal.device_id,
-      date: date,
-    };
-    try {
-      dispatch(Services.getChartInverterIV(obj)).then(data => {
-        // console.log(JSON.stringify(data.payload), 'fgetChartInverter1');
 
-        let itemGreen = data?.payload?.DCI.map(item => {
-          let properties = {
-            value: item.value,
-            label: item.label,
-            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
-          };
-          return properties;
-        });
-
-        let itemYellow = data?.payload?.DCV.map(item => {
-          let properties = {
-            value: item.value,
-            label: item.label,
-            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
-          };
-          return properties;
-        });
-        setDCI(itemGreen);
-        setDCV(itemYellow);
-
-        //   console.log(itemGreen, 'itemGreen');
-
-        // setLineDataGreen(itemGreen);
-        // setLineDataYellow(itemYellow);
-        // setLineDataRed(itemRed);
-        // setLineDataBlue(itemBlue);
-
-        setisLoading(false);
-      });
-    } catch (err) {
-      ShowToast('error', 'No records.');
-      setisLoading(false);
-    } finally {
-      //  setisLoading(false);
-    }
-  };
   const getCurrentDate = () => {
     var date = new Date().getDate(); //Current Date
     var month = new Date().getMonth() + 1; //Current Month
@@ -1605,7 +1610,7 @@ export const DeviceDetail = ({ navigation, route }: any) => {
         {/* Line Chart */}
 
         <LineChart4Devices
-          LoadMax={LoadMax}
+          LoadMax={LoadMax > 0 ? LoadMax : 100}
           lineData={linedataGreen}
           lineData2={linedataYellow}
           lineData3={linedataRed}
@@ -1613,7 +1618,9 @@ export const DeviceDetail = ({ navigation, route }: any) => {
           toggleModalIn={toggleModalIn}
         />
 
-        <LineChart2Btns lineData={DCI} lineData2={DCV}  toggleModalInDC={toggleModalInDC} />
+        <LineChart2Btns
+          LoadMax={LoadMax2 > 0 ? LoadMax2 : 100}
+          lineData={DCI} lineData2={DCV} toggleModalInDC={toggleModalInDC} />
       </ScrollView>
 
     </View>

@@ -606,7 +606,7 @@ export const DayChartCard = ({ navigation }: any) => {
     };
     try {
       dispatch(Services.getChartDaily(object)).then(data => {
-        //    console.log(JSON.stringify(data?.payload.fuel_save), 'from stats day');
+        console.log(JSON.stringify(data?.payload), 'from stats day');
         //   const a = JSON.parse(message.payloadString);
         if (data?.payload?.message) {
           let arrayEM = [];
@@ -1018,7 +1018,7 @@ export const DayChartCard = ({ navigation }: any) => {
     );
   }
   const memoChild = React.useMemo(() => <LineChartDay
-    LoadMax={LoadMax} GridStatus={GridStatus}
+    LoadMax={LoadMax > 0 ? LoadMax : 100} GridStatus={GridStatus}
     SolarStatus={SolarStatus} GenStatus={GenStatus}
     LoadStatus={LoadStatus}
     lineData={lineData}
@@ -1027,7 +1027,7 @@ export const DayChartCard = ({ navigation }: any) => {
     lineData4={lineData4}
     isPointerActive={isPointerActive} setIsPointerActive={setIsPointerActive}
   />
-    , [GenStatus,LoadMax, LoadStatus, GridStatus, SolarStatus, isPointerActive, lineData, lineData2, lineData3, lineData4]);
+    , [GenStatus, LoadMax, LoadStatus, GridStatus, SolarStatus, isPointerActive, lineData, lineData2, lineData3, lineData4]);
 
   useEffect(() => {
     getCurrentDate();
@@ -1099,7 +1099,10 @@ export const DayChartCard = ({ navigation }: any) => {
             <Text style={styles.CCTextD}>Full Screen</Text>
           </Pressable>
         </View>
-        {memoChild}
+        <ScrollView horizontal>
+          {memoChild}
+        </ScrollView>
+
 
         <>
           {/* <View style={styles.LCWraper}>

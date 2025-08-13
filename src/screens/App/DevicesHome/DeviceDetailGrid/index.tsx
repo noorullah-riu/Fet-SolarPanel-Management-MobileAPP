@@ -457,13 +457,7 @@ export const DeviceDetailGrid = ({navigation, route}: any) => {
           return properties;
         });
 
-        let max = itemBlue[0];
-        for (let i = 1; i < itemBlue; ++i) {
-          if (itemBlue[i] > max) {
-            max = itemBlue[i];
-          }
-        }
-        setLoadMax(max?.value + 20);
+   
 
         let itemMix = [];
         itemGreen2.forEach(function (item, index) {
@@ -495,6 +489,43 @@ export const DeviceDetailGrid = ({navigation, route}: any) => {
         });
 
         console.log(itemMix, 'itemMix');
+
+                let maxB = itemBlue[0];
+           console.log(maxB, 'maxB -->');
+        for (let i = 1; i < itemBlue.length; ++i) {
+          if (itemBlue[i].value > maxB.value) {
+            maxB = itemBlue[i];
+          }
+          //    console.log(maxB, 'maxB');
+        }
+        let maxR = itemRed[0];
+        for (let i = 1; i < itemRed.length; ++i) {
+          if (itemRed[i].value > maxR.value) {
+            maxR = itemRed[i];
+          }
+          //    console.log(maxR, 'maxR');
+        }
+        let maxY = itemYellow[0];
+        for (let i = 1; i < itemYellow.length; ++i) {
+          if (itemYellow[i].value > maxY.value) {
+            maxY = itemYellow[i];
+          }
+          //  console.log(maxY, 'maxY');
+        }
+        let maxG = itemGreen[0];
+        for (let i = 1; i < itemGreen.length; ++i) {
+          if (itemGreen[i].value > maxG.value) {
+            maxG = itemGreen[i];
+          }
+          //   console.log(maxG, 'maxG');
+        }
+        var largeVal = 100
+        largeVal = Math.max(maxB?.value, maxR?.value, maxY?.value, maxG?.value);
+        console.log(maxB?.value, maxR?.value, maxY?.value, maxG?.value, '-------->');
+        console.log(largeVal, '-------->');
+
+        setLoadMax(largeVal);
+        
         setMix(itemMix);
 
         setKI(itemGreen2);
@@ -850,7 +881,7 @@ export const DeviceDetailGrid = ({navigation, route}: any) => {
         />
         {/* Line Chart */}
         <LineChart4Devices
-          LoadMax={LoadMax}
+          LoadMax={LoadMax > 0 ? LoadMax : 100}
           lineData={linedataGreen}
           lineData2={linedataYellow}
           lineData3={linedataRed}

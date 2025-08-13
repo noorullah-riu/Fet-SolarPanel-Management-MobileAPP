@@ -117,7 +117,7 @@ const Animation4Node = ({
     if (message) {
       //   setisLoading(true);
       const a = JSON.parse(message.payloadString);
-      console.log(a, '-->');
+    //  console.log(a, '-->');
       setsolarVal(a?.d?.SOLAR_KW);
       setgridVal(a?.d?.GRID_KW);
       setgenVal(a?.d?.GENERATOR_KW);

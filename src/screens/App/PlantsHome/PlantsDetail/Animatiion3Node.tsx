@@ -64,7 +64,7 @@ const Animation3Node = ({
     if (message) {
       //   setisLoading(true);
       const a = JSON.parse(message.payloadString);
-      console.log(a, '-->');
+     // console.log(a, '-->');
       setsolarVal(a?.d?.SOLAR_POWER);
       setgridVal(a?.d?.GRID_POWER);
       //   setgenVal(a?.d?.GEN_POWER);

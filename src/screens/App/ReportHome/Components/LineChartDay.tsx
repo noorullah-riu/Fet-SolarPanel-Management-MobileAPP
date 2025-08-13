@@ -7,7 +7,7 @@ import rfSpacing from '../../../../theme/rfSpacing';
 const screenWidth = Dimensions.get('window').width;
 
 const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus, SolarStatus, GenStatus, LoadStatus, lineData, lineData2, lineData3, lineData4 }: any) => {
-  //  console.log("chart rendering --------------->");
+    //  console.log("chart rendering --------------->");
 
     const activeData = GridStatus ? lineData : SolarStatus ? lineData2 : GenStatus ? lineData3 : lineData4;
     const numberOfDataPoints = activeData.length;
@@ -95,7 +95,7 @@ const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus
                     curved
                     thickness={0.5}
                     //   hideDataPoints={true}
-                    //       noOfSections={10}
+                    //    noOfSections={10}
                     maxValue={LoadMax}
                     data={
                         GridStatus
@@ -110,11 +110,11 @@ const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus
                     data3={GenStatus === true ? lineData3 : dataDefault}
                     data4={LoadStatus === true ? lineData4 : dataDefault}
                     height={150}
-                    width={calculatedWidth}
+                  //  width={calculatedWidth}
                     //   width={screenWidth} // Adjust width dynamically
                     //   width={screenWidth}
                     //   dataPointsSpacing={1}
-                    //   initialSpacing={adjustedSpacing}
+               //     initialSpacing={20}
                     yAxisTextStyle={{ color: colors.fetGray, fontSize: rfSpacing.m }}
                     //    initialSpacing={5}
                     yAxisColor="#aaa"
@@ -123,14 +123,14 @@ const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus
                     //'"#cc0000"
                     color2='#18CF87'
                     // "#00b33c"
-                    color3= '#ec518fff'
+                    color3='#ec518fff'
                     //"#ffcc00"
-                    color4= '#ffcc00'
+                    color4='#ffcc00'
                     //"#9fbbf4"
                     textColor1="green"
                     hideDataPoints
                     initialSpacing={0} // Set dynamic spacing
-                    //     disableScroll={true}
+                    //  disableScroll={true}
                     //   rotateLabel
                     //     dataPointsColor1="blue"
                     //    dataPointsColor2="red"
@@ -140,7 +140,7 @@ const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus
                     //"#00b33c"
                     startFillColor3='#ec518fff'
                     //"#ffcc00"
-                    startFillColor4= '#ffcc00'
+                    startFillColor4='#ffcc00'
                     //"#9fbbf4"
                     hideRules
                     startOpacity={0.4}
