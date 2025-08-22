@@ -246,7 +246,7 @@ const LineChart4Devices = ({
                 }}>
                 <View
                   style={{
-                    backgroundColor: colors.fet2,
+                    backgroundColor: colors.fet1,
                     width: rfSpacing.s,
                     height: rfSpacing.s,
                     borderRadius: rfSpacing.xs,
@@ -287,7 +287,7 @@ const LineChart4Devices = ({
                 }}>
                 <View
                   style={{
-                    backgroundColor: colors.fet3,
+                    backgroundColor: colors.fet2,
                     width: rfSpacing.s,
                     height: rfSpacing.s,
                     borderRadius: rfSpacing.xs,
@@ -328,7 +328,7 @@ const LineChart4Devices = ({
                 }}>
                 <View
                   style={{
-                    backgroundColor: colors.fet1,
+                    backgroundColor: colors.fet3,
                     width: rfSpacing.s,
                     height: rfSpacing.s,
                     borderRadius: rfSpacing.xs,

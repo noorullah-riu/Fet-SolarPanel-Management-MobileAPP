@@ -337,7 +337,7 @@ export const DeviceDetail = ({ navigation, route }: any) => {
 
           console.log(maxY2?.value, maxG2?.value, '-------->');
           console.log(largeVal2, '-------->');
-          setLoadMax2(largeVal2)
+          setLoadMax2(largeVal2+500)
 
           setDCI(itemGreen2);
           setDCV(itemYellow2);

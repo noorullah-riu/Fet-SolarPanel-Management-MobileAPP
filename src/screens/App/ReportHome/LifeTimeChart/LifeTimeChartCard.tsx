@@ -1,5 +1,5 @@
-import React, {useState, useContext, useEffect} from 'react';
-import {Text, Alert, Pressable, Image, View, ScrollView} from 'react-native';
+import React, { useState, useContext, useEffect } from 'react';
+import { Text, Alert, Pressable, Image, View, ScrollView } from 'react-native';
 import styles from '../style';
 import colors from '../../../../theme/colors';
 import rfSpacing from '../../../../theme/rfSpacing';
@@ -12,14 +12,14 @@ import FuelSaveBarChartDiv from '../Components/FuelSaveBarChart';
 import BarChart4LinesDiv from '../Components/BarChart4Lines';
 import TimeCard from '../../../../ui/TimePicker';
 
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Services from '../../../../networking/auth/Services';
 import EcomContext from '../../../../contextApi/DataProvider';
 import ShowToast from '../../../../ui/Toast';
 import Loader from '../../../../ui/Loader';
 
-export const LifeTimeChartCard = ({navigation}: any) => {
-  const {plant, setplant, Data}: any = useContext(EcomContext);
+export const LifeTimeChartCard = ({ navigation }: any) => {
+  const { plant, setplant, Data }: any = useContext(EcomContext);
 
   const [isLoading, setisLoading] = useState(false);
   const dispatch = useDispatch();
@@ -64,80 +64,80 @@ export const LifeTimeChartCard = ({navigation}: any) => {
   const [BarLitter, setBarLitter] = useState(true);
 
   const item = [
-    {quarter: '00.00', earnings: 900},
-    {quarter: '03.00', earnings: 1300},
-    {quarter: '06.00', earnings: 1600},
-    {quarter: '09.00', earnings: 2200},
-    {quarter: '12.00', earnings: 1700},
-    {quarter: '15.00', earnings: 1200},
-    {quarter: '18.00', earnings: 1000},
-    {quarter: '21.00', earnings: 800},
+    { quarter: '00.00', earnings: 900 },
+    { quarter: '03.00', earnings: 1300 },
+    { quarter: '06.00', earnings: 1600 },
+    { quarter: '09.00', earnings: 2200 },
+    { quarter: '12.00', earnings: 1700 },
+    { quarter: '15.00', earnings: 1200 },
+    { quarter: '18.00', earnings: 1000 },
+    { quarter: '21.00', earnings: 800 },
   ];
   const circleData1 = [
-    {value: 70, color: colors.fetGreen},
-    {value: 30, color: colors.fetYellow},
+    { value: 70, color: colors.fetGreen },
+    { value: 30, color: colors.fetYellow },
   ];
   const pieData1 = [
-    {value: 54, color: '#cc0000'},
-    {value: 40, color: '#00b33c'},
-    {value: 20, color: '#ffcc00'},
+    { value: 54, color: '#cc0000' },
+    { value: 40, color: '#00b33c' },
+    { value: 20, color: '#ffcc00' },
   ];
   const lineData = [
     {
       value: 0,
       label: '00:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
     {
       value: 10,
       label: '04:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
     {
       value: 8,
       label: '08:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
     {
       value: 58,
       label: '12:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
     {
       value: 56,
       label: '16:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
     {
       value: 78,
       label: '20:00',
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
     },
   ];
   const lineData2 = [
-    {value: 0, label: '00:00'},
-    {value: 20, label: '04:00'},
-    {value: 18, label: '08:00'},
-    {value: 40, label: '12:00'},
-    {value: 36, label: '16:00'},
-    {value: 60, label: '20:00'},
+    { value: 0, label: '00:00' },
+    { value: 20, label: '04:00' },
+    { value: 18, label: '08:00' },
+    { value: 40, label: '12:00' },
+    { value: 36, label: '16:00' },
+    { value: 60, label: '20:00' },
   ];
   const lineData3 = [
-    {value: 0, label: '00:00'},
-    {value: 30, label: '04:00'},
-    {value: 28, label: '08:00'},
-    {value: 50, label: '12:00'},
-    {value: 16, label: '16:00'},
-    {value: 90, label: '20:00'},
+    { value: 0, label: '00:00' },
+    { value: 30, label: '04:00' },
+    { value: 28, label: '08:00' },
+    { value: 50, label: '12:00' },
+    { value: 16, label: '16:00' },
+    { value: 90, label: '20:00' },
   ];
 
   const lineData4 = [
-    {value: 0, label: '00:00'},
-    {value: 20, label: '04:00'},
-    {value: 18, label: '08:00'},
-    {value: 40, label: '12:00'},
-    {value: 26, label: '16:00'},
-    {value: 50, label: '20:00'},
+    { value: 0, label: '00:00' },
+    { value: 20, label: '04:00' },
+    { value: 18, label: '08:00' },
+    { value: 40, label: '12:00' },
+    { value: 26, label: '16:00' },
+    { value: 50, label: '20:00' },
   ];
 
   const barDataMix2 = [
@@ -146,73 +146,73 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '00:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 20, frontColor: colors.fet3},
+    { value: 20, frontColor: colors.fet3 },
     {
       value: 50,
       label: '03:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 40, frontColor: colors.fet3},
+    { value: 40, frontColor: colors.fet3 },
     {
       value: 75,
       label: '06:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 25, frontColor: colors.fet3},
+    { value: 25, frontColor: colors.fet3 },
     {
       value: 30,
       label: '09:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 20, frontColor: colors.fet3},
+    { value: 20, frontColor: colors.fet3 },
     {
       value: 60,
       label: '12:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 40, frontColor: colors.fet3},
+    { value: 40, frontColor: colors.fet3 },
     {
       value: 65,
       label: '15:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 30, frontColor: colors.fet3},
+    { value: 30, frontColor: colors.fet3 },
     {
       value: 65,
       label: '18:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 30, frontColor: colors.fet3},
+    { value: 30, frontColor: colors.fet3 },
     {
       value: 65,
       label: '21:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 30, frontColor: colors.fet3},
+    { value: 30, frontColor: colors.fet3 },
   ];
   const barDataMix4 = [
     {
@@ -220,89 +220,89 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '00:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 20, frontColor: colors.fet3, spacing: 0},
-    {value: 30, frontColor: colors.fetBlue, spacing: 0},
-    {value: 25, frontColor: colors.fet1, spacing: 10},
+    { value: 20, frontColor: colors.fet3, spacing: 0 },
+    { value: 30, frontColor: colors.fetBlue, spacing: 0 },
+    { value: 25, frontColor: colors.fet1, spacing: 10 },
     {
       value: 50,
       label: '03:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 40, frontColor: colors.fet3, spacing: 0},
-    {value: 30, frontColor: colors.fetBlue, spacing: 0},
-    {value: 25, frontColor: colors.fet1, spacing: 10},
+    { value: 40, frontColor: colors.fet3, spacing: 0 },
+    { value: 30, frontColor: colors.fetBlue, spacing: 0 },
+    { value: 25, frontColor: colors.fet1, spacing: 10 },
     {
       value: 75,
       label: '06:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 25, frontColor: colors.fet3, spacing: 0},
-    {value: 30, frontColor: colors.fetBlue, spacing: 0},
-    {value: 25, frontColor: colors.fet1, spacing: 10},
+    { value: 25, frontColor: colors.fet3, spacing: 0 },
+    { value: 30, frontColor: colors.fetBlue, spacing: 0 },
+    { value: 25, frontColor: colors.fet1, spacing: 10 },
     {
       value: 30,
       label: '09:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 20, frontColor: colors.fet3, spacing: 0},
-    {value: 30, frontColor: colors.fetBlue, spacing: 0},
-    {value: 25, frontColor: colors.fet1, spacing: 10},
+    { value: 20, frontColor: colors.fet3, spacing: 0 },
+    { value: 30, frontColor: colors.fetBlue, spacing: 0 },
+    { value: 25, frontColor: colors.fet1, spacing: 10 },
     {
       value: 60,
       label: '12:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 40, frontColor: colors.fet3, spacing: 0},
-    {value: 30, frontColor: colors.fetBlue, spacing: 0},
-    {value: 25, frontColor: colors.fet1, spacing: 10},
+    { value: 40, frontColor: colors.fet3, spacing: 0 },
+    { value: 30, frontColor: colors.fetBlue, spacing: 0 },
+    { value: 25, frontColor: colors.fet1, spacing: 10 },
     {
       value: 65,
       label: '15:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 30, frontColor: colors.fet3, spacing: 0},
-    {value: 30, frontColor: colors.fetBlue, spacing: 0},
-    {value: 25, frontColor: colors.fet1, spacing: 10},
+    { value: 30, frontColor: colors.fet3, spacing: 0 },
+    { value: 30, frontColor: colors.fetBlue, spacing: 0 },
+    { value: 25, frontColor: colors.fet1, spacing: 10 },
     {
       value: 65,
       label: '18:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 30, frontColor: colors.fet3, spacing: 0},
-    {value: 30, frontColor: colors.fetBlue, spacing: 0},
-    {value: 25, frontColor: colors.fet1, spacing: 10},
+    { value: 30, frontColor: colors.fet3, spacing: 0 },
+    { value: 30, frontColor: colors.fetBlue, spacing: 0 },
+    { value: 25, frontColor: colors.fet1, spacing: 10 },
     {
       value: 65,
       label: '21:00',
       spacing: 0,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
-    {value: 30, frontColor: colors.fet3, spacing: 0},
-    {value: 30, frontColor: colors.fetBlue, spacing: 0},
-    {value: 25, frontColor: colors.fet1, spacing: 10},
+    { value: 30, frontColor: colors.fet3, spacing: 0 },
+    { value: 30, frontColor: colors.fetBlue, spacing: 0 },
+    { value: 25, frontColor: colors.fet1, spacing: 10 },
   ];
   const barDataGreen2 = [
     {
@@ -310,7 +310,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '00:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -318,7 +318,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '03:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -326,7 +326,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '06:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -334,7 +334,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '09:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -342,7 +342,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '12:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -350,7 +350,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '15:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -358,7 +358,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '18:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
     {
@@ -366,7 +366,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '21:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet2,
     },
   ];
@@ -376,7 +376,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '00:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -384,7 +384,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '03:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -392,7 +392,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '06:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -400,7 +400,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '09:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -408,7 +408,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '12:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -416,7 +416,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '15:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -424,7 +424,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '18:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
     {
@@ -432,7 +432,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '21:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet3,
     },
   ];
@@ -442,7 +442,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '00:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fetBlue,
     },
     {
@@ -450,7 +450,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '03:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fetBlue,
     },
     {
@@ -458,7 +458,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '06:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fetBlue,
     },
     {
@@ -466,7 +466,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '09:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fetBlue,
     },
     {
@@ -474,7 +474,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '12:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fetBlue,
     },
     {
@@ -482,7 +482,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '15:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fetBlue,
     },
     {
@@ -490,7 +490,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '18:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fetBlue,
     },
     {
@@ -498,7 +498,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '21:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fetBlue,
     },
   ];
@@ -508,7 +508,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '00:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet1,
     },
     {
@@ -516,7 +516,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '03:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet1,
     },
     {
@@ -524,7 +524,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '06:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet1,
     },
     {
@@ -532,7 +532,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '09:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet1,
     },
     {
@@ -540,7 +540,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '12:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet1,
     },
     {
@@ -548,7 +548,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '15:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet1,
     },
     {
@@ -556,7 +556,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '18:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet1,
     },
     {
@@ -564,7 +564,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       label: '21:00',
       spacing: 30,
       labelWidth: 30,
-      labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
+      labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m },
       frontColor: colors.fet1,
     },
   ];
@@ -585,164 +585,164 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       setGridStatus(true);
     }
   };
-  const getYearChartDataBar = async date => {
-    setisLoading(true);
-    let obj = {
-      plant: plant,
-      token: Data,
-      date: date,
-    };
-    try {
-      dispatch(Services.getBarChartAlltime(obj)).then(data => {
-        console.log(
-          JSON.stringify(data.payload.kwh.solar.length),
-          'from stats bar all',
-        );
+  // const getYearChartDataBar = async date => {
+  //   setisLoading(true);
+  //   let obj = {
+  //     plant: plant,
+  //     token: Data,
+  //     date: date,
+  //   };
+  //   try {
+  //     dispatch(Services.getBarChartAlltime(obj)).then(data => {
+  //       console.log(
+  //         JSON.stringify(data.payload.kwh.solar.length),
+  //         'from stats bar all',
+  //       );
 
-        let itemGrid = data?.payload?.kwh?.grid?.slice(0, 30).map(item => {
-          let properties = {
-            value: item.value,
-            label: item.label,
-            labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
-            spacing: 30,
-            labelWidth: 30,
-            frontColor: colors.fet1,
-          };
-          return properties;
-        });
-        let itemGen = data?.payload?.kwh?.gen?.slice(0, 30).map(item => {
-          let properties = {
-            value: item.value,
-            label: item.label,
-            labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
-            spacing: 30,
-            labelWidth: 30,
-            frontColor: colors.fet3,
-          };
-          return properties;
-        });
+  //       let itemGrid = data?.payload?.kwh?.grid?.slice(0, 30).map(item => {
+  //         let properties = {
+  //           value: item.value,
+  //           label: item.label,
+  //           labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
+  //           spacing: 30,
+  //           labelWidth: 30,
+  //           frontColor: colors.fet1,
+  //         };
+  //         return properties;
+  //       });
+  //       let itemGen = data?.payload?.kwh?.gen?.slice(0, 30).map(item => {
+  //         let properties = {
+  //           value: item.value,
+  //           label: item.label,
+  //           labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
+  //           spacing: 30,
+  //           labelWidth: 30,
+  //           frontColor: colors.fet3,
+  //         };
+  //         return properties;
+  //       });
 
-        let itemSolar = data?.payload?.kwh?.solar?.slice(0, 30).map(item => {
-          let properties = {
-            value: item.value,
-            label: item.label,
-            labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
-            spacing: 30,
-            labelWidth: 30,
-            frontColor: colors.fet2,
-          };
-          return properties;
-        });
-        let itemLoad = data?.payload?.kwh?.load?.slice(0, 30).map(item => {
-          let properties = {
-            value: item.value,
-            label: item.label,
-            labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
-            spacing: 30,
-            labelWidth: 30,
-            frontColor: colors.fetBlue,
-          };
-          return properties;
-        });
-        //     console.log(itemMix.length, '-----> itemMix all ');
-        console.log(itemGrid.length, '-----> itemGrid all ');
-        console.log(itemGen.length, '-----> itemGen  all');
-        console.log(itemSolar.length, '-----> itemSolar all');
-        console.log(itemLoad.length, '-----> itemLoad all');
+  //       let itemSolar = data?.payload?.kwh?.solar?.slice(0, 30).map(item => {
+  //         let properties = {
+  //           value: item.value,
+  //           label: item.label,
+  //           labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
+  //           spacing: 30,
+  //           labelWidth: 30,
+  //           frontColor: colors.fet2,
+  //         };
+  //         return properties;
+  //       });
+  //       let itemLoad = data?.payload?.kwh?.load?.slice(0, 30).map(item => {
+  //         let properties = {
+  //           value: item.value,
+  //           label: item.label,
+  //           labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
+  //           spacing: 30,
+  //           labelWidth: 30,
+  //           frontColor: colors.fetBlue,
+  //         };
+  //         return properties;
+  //       });
+  //       //     console.log(itemMix.length, '-----> itemMix all ');
+  //       console.log(itemGrid.length, '-----> itemGrid all ');
+  //       console.log(itemGen.length, '-----> itemGen  all');
+  //       console.log(itemSolar.length, '-----> itemSolar all');
+  //       console.log(itemLoad.length, '-----> itemLoad all');
 
-        let itemMix = [];
-        let properties = {};
-        let properties2 = {};
-        let properties3 = {};
-        let properties4 = {};
-        itemGrid.forEach(function (item, index) {
-          itemSolar.forEach(function (item2, index2) {
-            itemGen.forEach(function (item3, index2) {
-              itemLoad.forEach(function (item4, index2) {
-                if (
-                  item2.label === item.label &&
-                  item3.label === item.label &&
-                  item4.label === item.label
-                ) {
-                  properties = {
-                    value: Math.floor(item.value),
-                    label: item.label,
-                    spacing: 1,
-                    labelWidth: 30,
-                    labelTextStyle: {
-                      color: colors.fetGray,
-                      fontSize: rfSpacing.m,
-                    },
-                    frontColor: colors.fet2,
-                  };
-                  properties2 = {
-                    value: Math.floor(item2.value),
-                    frontColor: colors.fet3,
-                    spacing: 0,
-                  };
-                  properties3 = {
-                    value: Math.floor(item3.value),
-                    frontColor: colors.fetBlue,
-                    spacing: 0,
-                  };
-                  properties4 = {
-                    value: Math.floor(item4.value),
-                    frontColor: colors.fet1,
-                    spacing: 10,
-                  };
-                }
-              });
-            });
-          });
-          itemMix.push(properties);
-          itemMix.push(properties2);
-          itemMix.push(properties3);
-          itemMix.push(properties4);
-        });
+  //       let itemMix = [];
+  //       let properties = {};
+  //       let properties2 = {};
+  //       let properties3 = {};
+  //       let properties4 = {};
+  //       itemGrid.forEach(function (item, index) {
+  //         itemSolar.forEach(function (item2, index2) {
+  //           itemGen.forEach(function (item3, index2) {
+  //             itemLoad.forEach(function (item4, index2) {
+  //               if (
+  //                 item2.label === item.label &&
+  //                 item3.label === item.label &&
+  //                 item4.label === item.label
+  //               ) {
+  //                 properties = {
+  //                   value: Math.floor(item.value),
+  //                   label: item.label,
+  //                   spacing: 1,
+  //                   labelWidth: 30,
+  //                   labelTextStyle: {
+  //                     color: colors.fetGray,
+  //                     fontSize: rfSpacing.m,
+  //                   },
+  //                   frontColor: colors.fet2,
+  //                 };
+  //                 properties2 = {
+  //                   value: Math.floor(item2.value),
+  //                   frontColor: colors.fet3,
+  //                   spacing: 0,
+  //                 };
+  //                 properties3 = {
+  //                   value: Math.floor(item3.value),
+  //                   frontColor: colors.fetBlue,
+  //                   spacing: 0,
+  //                 };
+  //                 properties4 = {
+  //                   value: Math.floor(item4.value),
+  //                   frontColor: colors.fet1,
+  //                   spacing: 10,
+  //                 };
+  //               }
+  //             });
+  //           });
+  //         });
+  //         itemMix.push(properties);
+  //         itemMix.push(properties2);
+  //         itemMix.push(properties3);
+  //         itemMix.push(properties4);
+  //       });
 
-        var newArray = itemMix.filter(value => Object.keys(value).length !== 0);
+  //       var newArray = itemMix.filter(value => Object.keys(value).length !== 0);
 
-        //   console.log(newArray, '-----> newArray ');
+  //       //   console.log(newArray, '-----> newArray ');
 
-        const sliceditemMix = newArray.slice(0, 30);
-        const sliceditemGrid = itemGrid.slice(0, 30);
-        const sliceditemGen = itemGen.slice(0, 30);
-        const sliceditemSolar = itemSolar.slice(0, 30);
-        const sliceditemLoad = itemLoad.slice(0, 30);
+  //       const sliceditemMix = newArray.slice(0, 30);
+  //       const sliceditemGrid = itemGrid.slice(0, 30);
+  //       const sliceditemGen = itemGen.slice(0, 30);
+  //       const sliceditemSolar = itemSolar.slice(0, 30);
+  //       const sliceditemLoad = itemLoad.slice(0, 30);
 
-        setbarDataRed(sliceditemGrid);
-        setbarDataYellow(sliceditemGen);
-        setbarDataGreen(sliceditemSolar);
-        setbarDataBlue(sliceditemLoad);
-        setbarDataMix(sliceditemMix);
+  //       setbarDataRed(sliceditemGrid);
+  //       setbarDataYellow(sliceditemGen);
+  //       setbarDataGreen(sliceditemSolar);
+  //       setbarDataBlue(sliceditemLoad);
+  //       setbarDataMix(sliceditemMix);
 
-        // let itemMix = data?.payload?.mixDataSet.map(item => {
-        //   let properties = {
-        //     value: item.value || 0,
-        //     label: item.label,
-        //     labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
-        //     spacing: 30,
-        //     labelWidth: 30,
-        //     frontColor: colors.fetBlue,
-        //   };
-        //   return properties;
-        // });
+  //       // let itemMix = data?.payload?.mixDataSet.map(item => {
+  //       //   let properties = {
+  //       //     value: item.value || 0,
+  //       //     label: item.label,
+  //       //     labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+  //       //     spacing: 30,
+  //       //     labelWidth: 30,
+  //       //     frontColor: colors.fetBlue,
+  //       //   };
+  //       //   return properties;
+  //       // });
 
-        // setbarDataRed(itemGrid);
-        // setbarDataYellow(itemGen);
-        // setbarDataGreen(itemSolar);
-        // setbarDataBlue(itemLoad);
-        //  setbarDataMix(itemMix);
+  //       // setbarDataRed(itemGrid);
+  //       // setbarDataYellow(itemGen);
+  //       // setbarDataGreen(itemSolar);
+  //       // setbarDataBlue(itemLoad);
+  //       //  setbarDataMix(itemMix);
 
-        setisLoading(false);
-      });
-    } catch (err) {
-      ShowToast('error', 'No records.');
-      setisLoading(false);
-    } finally {
-      //  setisLoading(false);
-    }
-  };
+  //       setisLoading(false);
+  //     });
+  //   } catch (err) {
+  //     ShowToast('error', 'No records.');
+  //     setisLoading(false);
+  //   } finally {
+  //     //  setisLoading(false);
+  //   }
+  // };
   const getMonthChartData = async () => {
     setisLoading(true);
     let obj = {
@@ -800,19 +800,27 @@ export const LifeTimeChartCard = ({navigation}: any) => {
               };
               arrayPD.push(objPD3);
             }
+            if (key === 'gridexport') {
+              let objPD4 = {
+                value: parseInt(value),
+                color: colors.fetGreen,
+                text: `${parseInt(data?.payload?.pieData?.pergridexport)}%`,
+              };
+              arrayPD.push(objPD4);
+            }
           }
 
           setpieData(arrayPD);
           setpieDataB(data?.payload?.pieData);
           setenvoirment(data?.payload?.invironmental_benefits);
-          setisLoading(false);
+        //  setisLoading(false);
 
           //bar data logic
           let itemGrid = data?.payload?.kwh?.grid.map(item => {
             let properties = {
               value: Math.floor(item.value) || 0,
               label: item.label,
-              labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+              labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
               spacing: 30,
               labelWidth: 30,
               frontColor: colors.fet1,
@@ -823,7 +831,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
             let properties = {
               value: Math.floor(item.value) || 0,
               label: item.label,
-              labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+              labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
               spacing: 30,
               labelWidth: 30,
               frontColor: colors.fet3,
@@ -834,7 +842,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
             let properties = {
               value: Math.floor(item.value) || 0,
               label: item.label,
-              labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+              labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
               spacing: 30,
               labelWidth: 30,
               frontColor: colors.fet2,
@@ -845,7 +853,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
             let properties = {
               value: Math.floor(item.value) || 0,
               label: item.label,
-              labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+              labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
               spacing: 30,
               labelWidth: 30,
               frontColor: colors.fetBlue,
@@ -1317,7 +1325,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
             let properties = {
               value: item.value || 0,
               label: item.label,
-              labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+              labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
               spacing: 60,
               labelWidth: 30,
               frontColor: colors.fet2,
@@ -1329,7 +1337,7 @@ export const LifeTimeChartCard = ({navigation}: any) => {
             let properties = {
               value: item.value || 0,
               label: item.label,
-              labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+              labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
               spacing: 60,
               labelWidth: 30,
               frontColor: colors.fet3,
@@ -1382,9 +1390,9 @@ export const LifeTimeChartCard = ({navigation}: any) => {
       });
     } catch (err) {
       ShowToast('error', 'No records.');
-      setisLoading(false);
+   //   setisLoading(false);
     } finally {
-      setisLoading(false);
+    //  setisLoading(false);
     }
   };
 

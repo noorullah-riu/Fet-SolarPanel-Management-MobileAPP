@@ -797,7 +797,7 @@ export const DeviceDetailGrid = ({navigation, route}: any) => {
             </View>
             <View style={style.f1}>
               <Text style={style.rightTxt}>
-                {twoDecimal(deviceData?.Power_Factor_L1) || 0}
+                {deviceData?.Power_Factor_L1}
               </Text>
             </View>
           </View>
@@ -808,7 +808,7 @@ export const DeviceDetailGrid = ({navigation, route}: any) => {
             </View>
             <View style={style.f1}>
               <Text style={style.rightTxt}>
-                {twoDecimal(deviceData?.Power_Factor_L2) || 0}
+                {deviceData?.Power_Factor_L2}
               </Text>
             </View>
           </View>
@@ -819,7 +819,7 @@ export const DeviceDetailGrid = ({navigation, route}: any) => {
             </View>
             <View style={style.f1}>
               <Text style={style.rightTxt}>
-                {twoDecimal(deviceData?.Power_Factor_L3) || 0}
+                {deviceData?.Power_Factor_L3}
               </Text>
             </View>
           </View>
@@ -830,7 +830,7 @@ export const DeviceDetailGrid = ({navigation, route}: any) => {
             </View>
             <View style={style.f1}>
               <Text style={style.rightTxt}>
-                {twoDecimal(deviceData?.Average_Power_Factor) || 0}
+                {deviceData?.Average_Power_Factor}
               </Text>
             </View>
           </View>

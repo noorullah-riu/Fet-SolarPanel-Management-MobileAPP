@@ -109,8 +109,10 @@ const LineChart2Btns = ({ LoadMax, lineData, lineData2, toggleModalInDC }) => {
             initialSpacing={15}
             yAxisColor="#aaa"
             xAxisColor="#aaa"
-            color1="#00b33c"
-            color2="#ffcc00"
+            color1='#3798FE'
+            //'"#cc0000"
+            color2='#18CF87'
+            // "#00b33c"
             color3="#9fbbf4"
             color4="#cc0000"
             textColor1="green"
@@ -175,7 +177,7 @@ const LineChart2Btns = ({ LoadMax, lineData, lineData2, toggleModalInDC }) => {
                 }}>
                 <View
                   style={{
-                    backgroundColor: colors.fet2,
+                    backgroundColor: colors.fet1,
                     width: rfSpacing.s,
                     height: rfSpacing.s,
                     borderRadius: rfSpacing.xs,
@@ -216,7 +218,7 @@ const LineChart2Btns = ({ LoadMax, lineData, lineData2, toggleModalInDC }) => {
                 }}>
                 <View
                   style={{
-                    backgroundColor: colors.fet3,
+                    backgroundColor: colors.fet2,
                     width: rfSpacing.s,
                     height: rfSpacing.s,
                     borderRadius: rfSpacing.xs,

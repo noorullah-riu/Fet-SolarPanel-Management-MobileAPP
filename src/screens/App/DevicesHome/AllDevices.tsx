@@ -1,15 +1,15 @@
-import React, {useEffect, useContext, useState} from 'react';
-import {Text, View, ScrollView, FlatList, Pressable, Image} from 'react-native';
+import React, { useEffect, useContext, useState } from 'react';
+import { Text, View, ScrollView, FlatList, Pressable, Image } from 'react-native';
 import EcomContext from '../../../contextApi/DataProvider';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Services from '../../../networking/auth/Services';
 
 import Loader from '../../../ui/Loader';
 import styles from './styles';
 import ShowToast from '../../../ui/Toast';
-import {twoDecimal} from '../../../utiltyFunc';
-const AllDevicesCard = ({navigation}: any) => {
-  const {plant, setplant,Data}: any = useContext(EcomContext);
+import { twoDecimal } from '../../../utiltyFunc';
+const AllDevicesCard = ({ navigation }: any) => {
+  const { plant, setplant, Data }: any = useContext(EcomContext);
   //console.log(plant, 'Devices ---->');
 
   const [inverterDevices, setinverterDevices] = useState([]);
@@ -32,20 +32,20 @@ const AllDevicesCard = ({navigation}: any) => {
   ];
 
   const deviceDetailNavFUn = item => {
-    navigation.navigate('DeviceDetail', {routeVal: item});
+    navigation.navigate('DeviceDetail', { routeVal: item });
     // Alert.alert('Add Pressed');
   };
   const deviceDetailNavFunLoad = item => {
-    navigation.navigate('DeviceDetailLoad', {routeVal: item});
+    navigation.navigate('DeviceDetailLoad', { routeVal: item });
     // Alert.alert('Add Pressed');
   };
 
   const deviceDetailNavFunGen = item => {
-    navigation.navigate('DeviceDetailGen', {routeVal: item});
+    navigation.navigate('DeviceDetailGen', { routeVal: item });
     // Alert.alert('Add Pressed');
   };
   const deviceDetailNavFunGrid = item => {
-    navigation.navigate('DeviceDetailGrid', {routeVal: item});
+    navigation.navigate('DeviceDetailGrid', { routeVal: item });
     // Alert.alert('Add Pressed');
   };
 
@@ -53,7 +53,7 @@ const AllDevicesCard = ({navigation}: any) => {
     navigation.navigate('DeviclWeather');
     // Alert.alert('Add Pressed');
   };
-  const renderItemInvertor = ({item}) => (
+  const renderItemInvertor = ({ item }) => (
     <Pressable onPress={() => deviceDetailNavFUn(item)} style={styles.pDivAll}>
       <View style={styles.f4}>
         <View style={styles.row}>
@@ -91,7 +91,7 @@ const AllDevicesCard = ({navigation}: any) => {
           </View>
           <View style={styles.f1}>
             <Text style={styles.ValueTextAll}>
-              {twoDecimal(item?.POWER_FACTOR)} 
+              {twoDecimal(item?.POWER_FACTOR)}
             </Text>
           </View>
         </View>
@@ -102,7 +102,7 @@ const AllDevicesCard = ({navigation}: any) => {
           </View>
           <View style={styles.f1}>
             <Text style={styles.ValueTextAll}>
-              {twoDecimal(item?.capacity) || 0}
+              {item?.INVERTER_RATED_POWER || 0}  kw
             </Text>
           </View>
         </View>
@@ -152,7 +152,7 @@ const AllDevicesCard = ({navigation}: any) => {
       </View>
     </Pressable>
   );
-  const renderItemLoad = ({item}) => (
+  const renderItemLoad = ({ item }) => (
     <Pressable
       onPress={() => deviceDetailNavFunLoad(item)}
       style={styles.pDivAll}>
@@ -242,7 +242,7 @@ const AllDevicesCard = ({navigation}: any) => {
       </View>
     </Pressable>
   );
-  const renderItemGrid = ({item}) => (
+  const renderItemGrid = ({ item }) => (
     <Pressable
       onPress={() => deviceDetailNavFunGrid(item)}
       style={styles.pDivAll}>
@@ -353,7 +353,7 @@ const AllDevicesCard = ({navigation}: any) => {
       </View>
     </Pressable>
   );
-  const renderItemGen = ({item}) => (
+  const renderItemGen = ({ item }) => (
     <Pressable
       onPress={() => deviceDetailNavFunGen(item)}
       style={styles.pDivAll}>
@@ -443,7 +443,7 @@ const AllDevicesCard = ({navigation}: any) => {
       </View>
     </Pressable>
   );
-  const renderItemWS = ({item}) => (
+  const renderItemWS = ({ item }) => (
     <Pressable
       onPress={() => deviceDetailNavFunWeather()}
       style={styles.pDivAll}>
@@ -524,9 +524,9 @@ const AllDevicesCard = ({navigation}: any) => {
   const getDevicesList = async () => {
     try {
       setisLoading(true);
-      let obj={
-        plant:plant,
-        token:Data,
+      let obj = {
+        plant: plant,
+        token: Data,
       }
       dispatch(Services.getDevicesList(obj)).then(data => {
         //   console.log(data.payload, 'from getDevicesList');

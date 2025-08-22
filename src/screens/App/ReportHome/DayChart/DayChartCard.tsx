@@ -625,6 +625,7 @@ export const DayChartCard = ({ navigation }: any) => {
               };
               arrayEM.push(objEM2);
             }
+
           }
           setcircleData(arrayEM);
           setenergyMan(data.payload.energyMgt);
@@ -654,6 +655,14 @@ export const DayChartCard = ({ navigation }: any) => {
                 text: `${parseInt(data?.payload?.pieData?.pergeneratorr)}%`,
               };
               arrayPD.push(objPD3);
+            }
+            if (key === 'gridexport') {
+              let objPD4 = {
+                value: parseInt(value),
+                color: colors.fetGreen,
+                text: `${parseInt(data?.payload?.pieData?.pergridexport)}%`,
+              };
+              arrayPD.push(objPD4);
             }
           }
 

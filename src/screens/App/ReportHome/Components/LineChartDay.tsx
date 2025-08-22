@@ -86,11 +86,28 @@ const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus
             </View>
         );
     }
+    // pick the longest series length (you want the spacing based on the line with most points)
+    const maxLen = 24;// Math.max(grid.length, solar.length, gen.length, load.length, 1);
+
+    // tune these to match your page padding
+    const horizontalPadding = 24;         // total (left+right) padding outside the chart
+    const initialSpacing = 0;             // left inset inside the chart
+    const endSpacing = 0;                  // right inset inside the chart
+
+    const chartWidth = screenWidth - horizontalPadding;
+    const spacing = React.useMemo(() => {
+        // distance between adjacent points to fill available width
+        return maxLen > 1
+            ? (chartWidth - initialSpacing - endSpacing) / (maxLen - 1)
+            : 0;
+    }, [chartWidth, maxLen]);
     return (
         <>
             <View style={styles.LCWraper}>
                 <LineChart
                     areaChart
+                    //      hideDataPoints
+                    //    spacing={spacing}
                     //     isAnimated={true}
                     curved
                     thickness={0.5}
@@ -110,12 +127,14 @@ const LineChartDay = ({ LoadMax, isPointerActive, setIsPointerActive, GridStatus
                     data3={GenStatus === true ? lineData3 : dataDefault}
                     data4={LoadStatus === true ? lineData4 : dataDefault}
                     height={150}
-                  //  width={calculatedWidth}
+                    //  width={calculatedWidth}
                     //   width={screenWidth} // Adjust width dynamically
                     //   width={screenWidth}
                     //   dataPointsSpacing={1}
-               //     initialSpacing={20}
+                    //     initialSpacing={20}
                     yAxisTextStyle={{ color: colors.fetGray, fontSize: rfSpacing.m }}
+                    //   xAxisLabelTextStyle={{ color: colors.fetGray, fontSize: rfSpacing.xxs }}
+                    //      xAxisTextNumberOfLines={10}
                     //    initialSpacing={5}
                     yAxisColor="#aaa"
                     xAxisColor="#aaa"

@@ -524,6 +524,13 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.fet3,
   },
+    DivG2: {
+    flex: 1,
+    borderRadius: rfSpacing.xs,
+    paddingVertical: 2,
+    alignItems: 'center',
+    backgroundColor: colors.fetGreen,
+  },
   f2: {
     flex: 2,
   },

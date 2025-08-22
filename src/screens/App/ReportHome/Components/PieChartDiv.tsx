@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {Text, Image, View} from 'react-native';
+import React, { useState } from 'react';
+import { Text, Image, View } from 'react-native';
 import style from '../style';
-import {PieChart} from 'react-native-gifted-charts';
-import {twoDecimal} from '../../../../utiltyFunc';
+import { PieChart } from 'react-native-gifted-charts';
+import { twoDecimal } from '../../../../utiltyFunc';
 
-const PieChartDiv = ({pieDataB, pieData, type}: any) => {
+const PieChartDiv = ({ pieDataB, pieData, type }: any) => {
   return (
     <>
       {/* Pie Chart */}
@@ -18,12 +18,12 @@ const PieChartDiv = ({pieDataB, pieData, type}: any) => {
               //    radius={150}
 
               //   showTextBackground
-          //    textBackgroundColor="#fff"
-          //    textBackgroundRadius={15}
+              //    textBackgroundColor="#fff"
+              //    textBackgroundRadius={15}
               //   textColor="white"
               textSize={13}
               //   textSize={20}
-           //   showTextBackground
+              //   showTextBackground
               data={pieData}
               radius={80}
             />
@@ -45,6 +45,12 @@ const PieChartDiv = ({pieDataB, pieData, type}: any) => {
               <Text style={style.PCBtnText}>Generator</Text>
               <Text style={style.PCBtnText}>
                 {twoDecimal(pieDataB?.generator)} Kwh
+              </Text>
+            </View>
+            <View style={style.DivG2}>
+              <Text style={style.PCBtnText}>Grid Export</Text>
+              <Text style={style.PCBtnText}>
+                {twoDecimal(pieDataB?.gridexport)} Kwh
               </Text>
             </View>
           </View>

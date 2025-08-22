@@ -627,169 +627,169 @@ export const YearChartCard = ({ navigation }: any) => {
     // funGetHistoryToday(today);
   };
 
-  const getYearChartDataBar = async date => {
-    setisLoading(true);
-    let obj = {
-      plant: plant,
-      token: Data,
-      date: date,
-    };
-    try {
-      dispatch(Services.getBarChartYearly(obj)).then(data => {
-        // console.log(
-        //   JSON.stringify(data.payload.kwh.solar.length),
-        //   'from stats bar',
-        // );
+  // const getYearChartDataBar = async date => {
+  //   setisLoading(true);
+  //   let obj = {
+  //     plant: plant,
+  //     token: Data,
+  //     date: date,
+  //   };
+  //   try {
+  //     dispatch(Services.getBarChartYearly(obj)).then(data => {
+  //       // console.log(
+  //       //   JSON.stringify(data.payload.kwh.solar.length),
+  //       //   'from stats bar',
+  //       // );
 
-        let itemGrid = data?.payload?.kwh?.grid.map(item => {
-          let properties = {
-            value: item.value,
-            label: item.label,
-            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
-            spacing: 30,
-            labelWidth: 30,
-            frontColor: colors.fet1,
-          };
-          return properties;
-        });
-        let itemGen = data?.payload?.kwh?.gen.map(item => {
-          let properties = {
-            value: item.value,
-            label: item.label,
-            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
-            spacing: 30,
-            labelWidth: 30,
-            frontColor: colors.fet3,
-          };
-          return properties;
-        });
-        let itemSolar = data?.payload?.kwh?.solar.map(item => {
-          let properties = {
-            value: item.value,
-            label: item.label,
-            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
-            spacing: 30,
-            labelWidth: 30,
-            frontColor: colors.fet2,
-          };
-          return properties;
-        });
-        let itemLoad = data?.payload?.kwh?.load.map(item => {
-          let properties = {
-            value: item.value,
-            label: item.label,
-            labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
-            spacing: 30,
-            labelWidth: 30,
-            frontColor: colors.fetBlue,
-          };
-          return properties;
-        });
+  //       let itemGrid = data?.payload?.kwh?.grid.map(item => {
+  //         let properties = {
+  //           value: item.value,
+  //           label: item.label,
+  //           labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
+  //           spacing: 30,
+  //           labelWidth: 30,
+  //           frontColor: colors.fet1,
+  //         };
+  //         return properties;
+  //       });
+  //       let itemGen = data?.payload?.kwh?.gen.map(item => {
+  //         let properties = {
+  //           value: item.value,
+  //           label: item.label,
+  //           labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
+  //           spacing: 30,
+  //           labelWidth: 30,
+  //           frontColor: colors.fet3,
+  //         };
+  //         return properties;
+  //       });
+  //       let itemSolar = data?.payload?.kwh?.solar.map(item => {
+  //         let properties = {
+  //           value: item.value,
+  //           label: item.label,
+  //           labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
+  //           spacing: 30,
+  //           labelWidth: 30,
+  //           frontColor: colors.fet2,
+  //         };
+  //         return properties;
+  //       });
+  //       let itemLoad = data?.payload?.kwh?.load.map(item => {
+  //         let properties = {
+  //           value: item.value,
+  //           label: item.label,
+  //           labelTextStyle: { color: colors.fetGray, fontSize: rfSpacing.m }, //'',
+  //           spacing: 30,
+  //           labelWidth: 30,
+  //           frontColor: colors.fetBlue,
+  //         };
+  //         return properties;
+  //       });
 
-        let itemMix = [];
-        let properties = {};
-        let properties2 = {};
-        let properties3 = {};
-        let properties4 = {};
-        itemGrid.forEach(function (item, index) {
-          itemSolar.forEach(function (item2, index2) {
-            itemGen.forEach(function (item3, index2) {
-              itemLoad.forEach(function (item4, index2) {
-                if (
-                  item2.label === item.label &&
-                  item3.label === item.label &&
-                  item4.label === item.label
-                ) {
-                  properties = {
-                    value: Math.floor(item.value),
-                    label: item.label,
-                    spacing: 1,
-                    labelWidth: 30,
-                    labelTextStyle: {
-                      color: colors.fetGray,
-                      fontSize: rfSpacing.m,
-                    },
-                    frontColor: colors.fet2,
-                  };
-                  properties2 = {
-                    value: Math.floor(item2.value),
-                    frontColor: colors.fet3,
-                    spacing: 0,
-                  };
-                  properties3 = {
-                    value: Math.floor(item3.value),
-                    frontColor: colors.fetBlue,
-                    spacing: 0,
-                  };
-                  properties4 = {
-                    value: Math.floor(item4.value),
-                    frontColor: colors.fet1,
-                    spacing: 10,
-                  };
-                }
-              });
-            });
-          });
-          itemMix.push(properties);
-          itemMix.push(properties2);
-          itemMix.push(properties3);
-          itemMix.push(properties4);
+  //       let itemMix = [];
+  //       let properties = {};
+  //       let properties2 = {};
+  //       let properties3 = {};
+  //       let properties4 = {};
+  //       itemGrid.forEach(function (item, index) {
+  //         itemSolar.forEach(function (item2, index2) {
+  //           itemGen.forEach(function (item3, index2) {
+  //             itemLoad.forEach(function (item4, index2) {
+  //               if (
+  //                 item2.label === item.label &&
+  //                 item3.label === item.label &&
+  //                 item4.label === item.label
+  //               ) {
+  //                 properties = {
+  //                   value: Math.floor(item.value),
+  //                   label: item.label,
+  //                   spacing: 1,
+  //                   labelWidth: 30,
+  //                   labelTextStyle: {
+  //                     color: colors.fetGray,
+  //                     fontSize: rfSpacing.m,
+  //                   },
+  //                   frontColor: colors.fet2,
+  //                 };
+  //                 properties2 = {
+  //                   value: Math.floor(item2.value),
+  //                   frontColor: colors.fet3,
+  //                   spacing: 0,
+  //                 };
+  //                 properties3 = {
+  //                   value: Math.floor(item3.value),
+  //                   frontColor: colors.fetBlue,
+  //                   spacing: 0,
+  //                 };
+  //                 properties4 = {
+  //                   value: Math.floor(item4.value),
+  //                   frontColor: colors.fet1,
+  //                   spacing: 10,
+  //                 };
+  //               }
+  //             });
+  //           });
+  //         });
+  //         itemMix.push(properties);
+  //         itemMix.push(properties2);
+  //         itemMix.push(properties3);
+  //         itemMix.push(properties4);
 
-          // itemMix.push(properties);
-          // itemMix.push(properties2);
-          // itemMix.push(properties3);
-          // itemMix.push(properties4);
-        });
-        //  setbarDataMix(itemMix);
-        console.log(itemMix.length, '-----> itemMix year ');
-        console.log(itemGrid.length, '-----> itemGrid year ');
-        console.log(itemGen.length, '-----> itemGen  year');
-        console.log(itemSolar.length, '-----> itemSolar year');
-        console.log(itemLoad.length, '-----> itemSolar year');
+  //         // itemMix.push(properties);
+  //         // itemMix.push(properties2);
+  //         // itemMix.push(properties3);
+  //         // itemMix.push(properties4);
+  //       });
+  //       //  setbarDataMix(itemMix);
+  //       console.log(itemMix.length, '-----> itemMix year ');
+  //       console.log(itemGrid.length, '-----> itemGrid year ');
+  //       console.log(itemGen.length, '-----> itemGen  year');
+  //       console.log(itemSolar.length, '-----> itemSolar year');
+  //       console.log(itemLoad.length, '-----> itemSolar year');
 
-        var newArray = itemMix.filter(value => Object.keys(value).length !== 0);
+  //       var newArray = itemMix.filter(value => Object.keys(value).length !== 0);
 
-        //   console.log(newArray, '-----> newArray ');
+  //       //   console.log(newArray, '-----> newArray ');
 
-        const sliceditemMix = newArray.slice(0, 50);
-        const sliceditemGrid = itemGrid.slice(0, 30);
-        const sliceditemGen = itemGen.slice(0, 30);
-        const sliceditemSolar = itemSolar.slice(0, 30);
-        const sliceditemLoad = itemLoad.slice(0, 30);
+  //       const sliceditemMix = newArray.slice(0, 50);
+  //       const sliceditemGrid = itemGrid.slice(0, 30);
+  //       const sliceditemGen = itemGen.slice(0, 30);
+  //       const sliceditemSolar = itemSolar.slice(0, 30);
+  //       const sliceditemLoad = itemLoad.slice(0, 30);
 
-        setbarDataRed(sliceditemGrid);
-        setbarDataYellow(sliceditemGen);
-        setbarDataGreen(sliceditemSolar);
-        setbarDataBlue(sliceditemLoad);
-        setbarDataMix(newArray);
+  //       setbarDataRed(sliceditemGrid);
+  //       setbarDataYellow(sliceditemGen);
+  //       setbarDataGreen(sliceditemSolar);
+  //       setbarDataBlue(sliceditemLoad);
+  //       setbarDataMix(newArray);
 
-        // let itemMix = data?.payload?.mixDataSet.map(item => {
-        //   let properties = {
-        //     value: item.value || 0,
-        //     label: item.label,
-        //     labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
-        //     spacing: 30,
-        //     labelWidth: 30,
-        //     frontColor: colors.fetBlue,
-        //   };
-        //   return properties;
-        // });
+  //       // let itemMix = data?.payload?.mixDataSet.map(item => {
+  //       //   let properties = {
+  //       //     value: item.value || 0,
+  //       //     label: item.label,
+  //       //     labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m}, //'',
+  //       //     spacing: 30,
+  //       //     labelWidth: 30,
+  //       //     frontColor: colors.fetBlue,
+  //       //   };
+  //       //   return properties;
+  //       // });
 
-        // setbarDataRed(itemGrid);
-        // setbarDataYellow(itemGen);
-        // setbarDataGreen(itemSolar);
-        // setbarDataBlue(itemLoad);
-        //  setbarDataMix(itemMix);
+  //       // setbarDataRed(itemGrid);
+  //       // setbarDataYellow(itemGen);
+  //       // setbarDataGreen(itemSolar);
+  //       // setbarDataBlue(itemLoad);
+  //       //  setbarDataMix(itemMix);
 
-        setisLoading(false);
-      });
-    } catch (err) {
-      ShowToast('error', 'No records.');
-      setisLoading(false);
-    } finally {
-      //  setisLoading(false);
-    }
-  };
+  //       setisLoading(false);
+  //     });
+  //   } catch (err) {
+  //     ShowToast('error', 'No records.');
+  //     setisLoading(false);
+  //   } finally {
+  //     //  setisLoading(false);
+  //   }
+  // };
   const getMonthChartData = async year => {
     setisLoading(true);
     let obj = {
@@ -847,6 +847,14 @@ export const YearChartCard = ({ navigation }: any) => {
                 text: `${parseInt(data?.payload?.pieData?.pergeneratorr)}%`,
               };
               arrayPD.push(objPD3);
+            }
+            if (key === 'gridexport') {
+              let objPD4 = {
+                value: parseInt(value),
+                color: colors.fetGreen,
+                text: `${parseInt(data?.payload?.pieData?.pergridexport)}%`,
+              };
+              arrayPD.push(objPD4);
             }
           }
 
@@ -1430,9 +1438,9 @@ export const YearChartCard = ({ navigation }: any) => {
       });
     } catch (err) {
       ShowToast('error', 'No records.');
-      setisLoading(false);
+   //   setisLoading(false);
     } finally {
-      setisLoading(false);
+   //   setisLoading(false);
     }
   };
 

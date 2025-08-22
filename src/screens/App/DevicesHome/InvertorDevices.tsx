@@ -1,24 +1,24 @@
-import React, {useEffect, useContext, useState} from 'react';
-import {Text, View, FlatList, Pressable, Image} from 'react-native';
+import React, { useEffect, useContext, useState } from 'react';
+import { Text, View, FlatList, Pressable, Image } from 'react-native';
 import styles from './styles';
 
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Services from '../../../networking/auth/Services';
 import EcomContext from '../../../contextApi/DataProvider';
 import Loader from '../../../ui/Loader';
 import ShowToast from '../../../ui/Toast';
-const InvertorDevicesCard = ({navigation}: any) => {
-  const {plant, setplant, Data}: any = useContext(EcomContext);
+const InvertorDevicesCard = ({ navigation }: any) => {
+  const { plant, setplant, Data }: any = useContext(EcomContext);
   const [isLoading, setisLoading] = useState(false);
   const [inverterDevices, setinverterDevices] = useState([]);
   const dispatch = useDispatch();
 
   const deviceDetailNavFUn = item => {
     // navigation.navigate('InverterDetail');
-    navigation.navigate('DeviceDetail', {routeVal: item});
+    navigation.navigate('DeviceDetail', { routeVal: item });
   };
 
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <Pressable onPress={() => deviceDetailNavFUn(item)} style={styles.pDiv}>
       <View style={styles.f4}>
         <View style={styles.row}>
@@ -53,7 +53,7 @@ const InvertorDevicesCard = ({navigation}: any) => {
             <Text style={styles.TitleText}>Power Factor</Text>
           </View>
           <View style={styles.f1}>
-            <Text style={styles.ValueText}>{item.POWER_FACTOR} kw</Text>
+            <Text style={styles.ValueText}>{item?.POWER_FACTOR}</Text>
           </View>
         </View>
 
@@ -62,7 +62,7 @@ const InvertorDevicesCard = ({navigation}: any) => {
             <Text style={styles.TitleText}>Capacity</Text>
           </View>
           <View style={styles.f1}>
-            <Text style={styles.ValueText}>{item.Capacity || 0}</Text>
+            <Text style={styles.ValueText}>{item?.INVERTER_RATED_POWER || 0}  kw</Text>
           </View>
         </View>
 
@@ -80,7 +80,7 @@ const InvertorDevicesCard = ({navigation}: any) => {
             <Text style={styles.TitleText}>This Month yield</Text>
           </View>
           <View style={styles.f1}>
-            <Text style={styles.ValueText}>{item.YIEL_MONTHLY} kwh</Text>
+            <Text style={styles.ValueText}>{item.YIELD_MONTHLY} kwh</Text>
           </View>
         </View>
         <View style={styles.row}>
@@ -88,7 +88,7 @@ const InvertorDevicesCard = ({navigation}: any) => {
             <Text style={styles.TitleText}>This Year yield</Text>
           </View>
           <View style={styles.f1}>
-            <Text style={styles.ValueText}>{item.YIEL_YEARLY} kwh</Text>
+            <Text style={styles.ValueText}>{item.YIELD_YEARLY} kwh</Text>
           </View>
         </View>
 

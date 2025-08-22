@@ -33,6 +33,7 @@ const Animation3Node = ({
   const [genVal, setgenVal] = useState([]);
   const [loadVal, setloadVal] = useState([]);
 
+  
   init({
     size: 10000,
     storageBackend: AsyncStorage,
