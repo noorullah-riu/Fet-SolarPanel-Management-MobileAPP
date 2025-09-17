@@ -197,7 +197,7 @@ export const DayChartCard = ({ navigation }: any) => {
     },
     { value: 0, frontColor: colors.fet3 },
   ]);
-  const [FSReveue, setFSReveue] = useState('');
+  const [FSReveue, setFSReveue] = useState(0);
 
   const [envoirment, setenvoirment] = useState({});
 
@@ -866,7 +866,7 @@ export const DayChartCard = ({ navigation }: any) => {
                         color: colors.fetGray,
                         fontSize: rfSpacing.m,
                       },
-                      frontColor: colors.fet2,
+                      frontColor: colors.fet3,
                     };
                     properties2 = {
                       value: Math.floor(item2.value),
@@ -874,7 +874,7 @@ export const DayChartCard = ({ navigation }: any) => {
                       //   spacing: 30,
                       //   labelWidth: 30,
                       //  labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
-                      frontColor: colors.fet3,
+                      frontColor: colors.fet2,
                     };
                   } else {
                     //   itemMix.push(null);
@@ -889,7 +889,7 @@ export const DayChartCard = ({ navigation }: any) => {
             setFSL(itemFSL);
             setFSKW(itemFSKW);
             setFSMIX(itemMix);
-            setFSReveue(data?.payload?.fuel_save?.revenue?.total);
+            setFSReveue(data?.payload?.fuel_save?.revenue);
           }
           setisLoading(false);
         }

@@ -198,7 +198,7 @@ export const DeviceDetail = ({ navigation, route }: any) => {
         token: Data,
       };
       dispatch(Services.getDeviceDetail(obj)).then(data => {
-        //  console.log(data.payload.deviceData, 'from getDeviceDetail');
+          console.log(data.payload.deviceData, 'from getDeviceDetail');
         if (data?.payload) {
           setdeviceData(data.payload.deviceData);
           //    setinverterDevices(InverterArray);
@@ -1526,7 +1526,7 @@ export const DeviceDetail = ({ navigation, route }: any) => {
 
           <View style={styles.rowStart}>
             <View style={styles.f1}>
-              <Text style={styles.leftTxt}>Total Today</Text>
+              <Text style={styles.leftTxt}>Energy Total</Text>
             </View>
             <View style={styles.f1}>
               <Text style={styles.rightTxt}>{deviceData?.YIELD_TOTAL} Kwh</Text>
@@ -1535,10 +1535,18 @@ export const DeviceDetail = ({ navigation, route }: any) => {
 
           <View style={styles.rowStart}>
             <View style={styles.f1}>
-              <Text style={styles.leftTxt}>Active Power</Text>
+              <Text style={styles.leftTxt}>Total Active Power</Text>
             </View>
             <View style={styles.f1}>
               <Text style={styles.rightTxt}>{deviceData?.ACTIVE_POWER} Kw</Text>
+            </View>
+          </View>
+              <View style={styles.rowStart}>
+            <View style={styles.f1}>
+              <Text style={styles.leftTxt}>Inverter Active Power</Text>
+            </View>
+            <View style={styles.f1}>
+              <Text style={styles.rightTxt}>{deviceData?.Inverter_Active_Power} Kw</Text>
             </View>
           </View>
 
@@ -1590,7 +1598,7 @@ export const DeviceDetail = ({ navigation, route }: any) => {
             </View>
             <View style={styles.f1}>
               <Text style={styles.rightTxt}>
-                {twoDecimal(deviceData?.INTERNAL_TEMPERATURE)} C
+                {twoDecimal(deviceData?.INTERNAL_TEMPERATURE)} °C
               </Text>
             </View>
           </View>

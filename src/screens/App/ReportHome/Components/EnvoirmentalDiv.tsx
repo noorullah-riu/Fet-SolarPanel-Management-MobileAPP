@@ -9,7 +9,7 @@ const EnvoirmentalBenifits = ({lineData}: any) => {
     <>
       {/* Envoirmental Div */}
       <View style={style.pDiv}>
-        <Text style={style.CCTextE}>Environmental benifits</Text>
+        <Text style={style.CCTextE}>Environmental benefits</Text>
         <View style={style.EBDivWraper}>
           <View style={style.EBDiv1}>
             <Text style={style.EBValue}>{twoDecimal(lineData?.standard_coal_saved)} tons</Text>

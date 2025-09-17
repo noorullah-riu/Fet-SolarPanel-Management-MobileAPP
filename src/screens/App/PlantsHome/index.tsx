@@ -253,7 +253,7 @@ export const PlantsHome = ({ navigation, route }: any) => {
         <View style={styles.statWrap}>
           <View style={styles.statDivBorder}>
             <Text style={styles.valueStats}>
-              {statsData?.totalInstallCapacity || 0} KWp
+              {statsData?.totalInstallCapacity || 0} KW
             </Text>
             <Text style={styles.btnTitle}>Total Install Capacity</Text>
           </View>

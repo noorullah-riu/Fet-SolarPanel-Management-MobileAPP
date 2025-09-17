@@ -74,13 +74,25 @@ const AllDevicesCard = ({ navigation }: any) => {
           </View>
         </View>
 
+
+
         <View style={styles.row}>
           <View style={styles.f1}>
-            <Text style={styles.TitleText}>Active Power</Text>
+            <Text style={styles.TitleText}>Total Active Power</Text>
           </View>
           <View style={styles.f1}>
             <Text style={styles.ValueTextAll}>
               {twoDecimal(item?.ACTIVE_POWER)} kw
+            </Text>
+          </View>
+        </View>
+            <View style={styles.row}>
+          <View style={styles.f1}>
+            <Text style={styles.TitleText}>Inverter Active Power</Text>
+          </View>
+          <View style={styles.f1}>
+            <Text style={styles.ValueTextAll}>
+              {twoDecimal(item?.Inverter_Active_Power)} kw
             </Text>
           </View>
         </View>
@@ -386,6 +398,18 @@ const AllDevicesCard = ({ navigation }: any) => {
             </Text>
           </View>
         </View>
+          <View style={styles.row}>
+          <View style={styles.f1}>
+            <Text style={styles.TitleText}>Inverter Active power</Text>
+          </View>
+          <View style={styles.f1}>
+            <Text style={styles.ValueTextAll}>
+              {twoDecimal(item?.ACTIVE_POWER) || 0} kw
+            </Text>
+          </View>
+        </View>
+
+        
 
         <View style={styles.row}>
           <View style={styles.f1}>

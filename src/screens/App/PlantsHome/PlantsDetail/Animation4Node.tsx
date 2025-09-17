@@ -117,30 +117,31 @@ const Animation4Node = ({
     if (message) {
       //   setisLoading(true);
       const a = JSON.parse(message.payloadString);
-    //  console.log(a, '-->');
-      setsolarVal(a?.d?.SOLAR_KW);
-      setgridVal(a?.d?.GRID_KW);
-      setgenVal(a?.d?.GENERATOR_KW);
-      const b = a?.d?.GENERATOR_KW[0] + a?.d?.GRID_KW[0] + a?.d?.SOLAR_KW[0];
+     // console.log(a, '--> 4 node ');
+      setsolarVal(a?.d?.SOLAR_POWER);
+      setgridVal(a?.d?.GRID_POWER);
+      setgenVal(a?.d?.GEN_POWER);
+
+      const b = a?.d?.GEN_POWER[0] + a?.d?.GRID_POWER[0] + a?.d?.SOLAR_POWER[0];
       //  console.log(b, '-->');
       setloadVal(b);
 
-      if (a?.d?.SOLAR_KW[0] > 0 && a?.d?.GRID_KW < 0) {
+      if (a?.d?.SOLAR_POWER[0] > 0 && a?.d?.GRID_POWER < 0) {
         //  console.log(a?.d?.SOLAR_POWER[0], 'SOLAR_POWER');
         setAnimation4Type(2); //2
-      } else if (a?.d?.SOLAR_KW[0] > 0 && a?.d?.GRID_KW > 0) {
+      } else if (a?.d?.SOLAR_POWER[0] > 0 && a?.d?.GRID_POWER > 0) {
         //    console.log(a?.d?.GRID_POWER[0], 'GRID_POWER');
         setAnimation4Type(3); //3
-      } else if (a?.d?.GRID_KW > 0) {
+      } else if (a?.d?.GRID_POWER > 0) {
         //     console.log(a?.d?.LOAD_POWER[0], 'LOAD_POWER');
         setAnimation4Type(6);
-      } else if (a?.d?.SOLAR_KW[0] > 0 && a?.d?.GENERATOR_KW[0] > 0) {
+      } else if (a?.d?.SOLAR_POWER[0] > 0 && a?.d?.GEN_POWER[0] > 0) {
         //   console.log(a?.d?.LOAD_POWER[0], 'LOAD_POWER');
         setAnimation4Type(1);
       } else if (
-        a?.d?.SOLAR_KW[0] > 0 &&
-        a?.d?.GENERATOR_KW[0] > 0 &&
-        a?.d?.GRID_KW[0] > 0
+        a?.d?.SOLAR_POWER[0] > 0 &&
+        a?.d?.GEN_POWER[0] > 0 &&
+        a?.d?.GRID_POWER[0] > 0
       ) {
         //  console.log(a?.d?.LOAD_POWER[0], 'LOAD_POWER');
         setAnimation4Type(5);

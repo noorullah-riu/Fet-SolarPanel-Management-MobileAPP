@@ -1361,7 +1361,7 @@ export const LifeTimeChartCard = ({ navigation }: any) => {
                     color: colors.fetGray,
                     fontSize: rfSpacing.m,
                   },
-                  frontColor: colors.fet2,
+                  frontColor: colors.fet3,
                 };
                 properties2 = {
                   value: Math.floor(item2.value),
@@ -1369,7 +1369,7 @@ export const LifeTimeChartCard = ({ navigation }: any) => {
                   //   spacing: 30,
                   //   labelWidth: 30,
                   //  labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
-                  frontColor: colors.fet3,
+                  frontColor: colors.fet2,
                 };
               } else {
                 //   itemMix.push(null);

@@ -167,14 +167,16 @@ const FuelSaveBarChartDiv = ({
         {/* </ReactNativeZoomableView> */}
         <View style={styles.BCBtnWraper}>
           <Pressable
-            onPress={() => setBarKwh(!BarKwh)}
-            style={BarKwh == true ? styles.activeDiv : styles.inActiveDiv}>
-            <Text style={styles.BCBtnText}>Kwh</Text>
-          </Pressable>
-          <Pressable
+
+
             onPress={() => setBarLitter(!BarLitter)}
             style={BarLitter === true ? styles.activeDiv : styles.inActiveDiv}>
             <Text style={styles.BCBtnText}>Litter</Text>
+          </Pressable>
+          <Pressable
+            onPress={() => setBarKwh(!BarKwh)}
+            style={BarKwh == true ? styles.activeDiv : styles.inActiveDiv}>
+            <Text style={styles.BCBtnText}>Kwh</Text>
           </Pressable>
           {/* <Pressable
             //     onPress={() => callFun()}

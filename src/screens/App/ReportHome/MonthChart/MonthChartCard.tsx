@@ -64,7 +64,7 @@ export const MonthChartCard = ({ navigation }: any) => {
       let newDateD = moment.utc(selectedDate).format('DD');
       console.log('converted date', newDateD);
 
-      //  var month = moment(selectedDate, 'YYYY-MM-DDTHH:mm:ss.SSS[Z]').format('MM');
+      var month = moment(selectedDate, 'YYYY-MM-DDTHH:mm:ss.SSS[Z]').format('MM');
       console.log('converted Month L', month);
 
       let newDateM = moment(selectedDate).format('MM');
@@ -1131,7 +1131,7 @@ export const MonthChartCard = ({ navigation }: any) => {
                     color: colors.fetGray,
                     fontSize: rfSpacing.m,
                   },
-                  frontColor: colors.fet2,
+                  frontColor: colors.fet3,
                 };
                 properties2 = {
                   value: Math.floor(item2.value),
@@ -1139,7 +1139,7 @@ export const MonthChartCard = ({ navigation }: any) => {
                   //   spacing: 30,
                   //   labelWidth: 30,
                   //  labelTextStyle: {color: colors.fetGray, fontSize: rfSpacing.m},
-                  frontColor: colors.fet3,
+                  frontColor: colors.fet2,
                 };
               } else {
                 //   itemMix.push(null);
